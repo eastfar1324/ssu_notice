@@ -2,23 +2,22 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from django.http import JsonResponse
 from dialogflow import DialogFlow
-import json
-
+import logging
 
 @csrf_exempt
 def index(request):
-    dialog_flow = DialogFlow()
-    if request.POST:
-        json_request = dialog_flow.get_json(request)
-        speech_request = dialog_flow.get_speech_request(json_request)
-        webhook_response = dialog_flow.get_webhook_response(speech_request)
+    dialogflow = DialogFlow()
+
+    if request.method == 'POST':
+        json_request = dialogflow.get_json(request)
+        speech_response = dialogflow.get_speech_response(json_request)
+        webhook_response = dialogflow.get_webhook_response(speech_response)
 
         return HttpResponse(
-            JsonResponse(json.dump(webhook_response)),
+            JsonResponse(webhook_response),
             content_type="application/json; charset=utf-8",
         )
+    elif request.method == 'GET':
+        return HttpResponse('Please request by POST')
     else:
-        return HttpResponse(
-            DialogFlow().get_speech_response('show me notices from yesterday'),
-            content_type="text/html; charset=utf-8",
-        )
+        return HttpResponse('You are questing by ' + request.method + ' method')

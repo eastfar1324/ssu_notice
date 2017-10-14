@@ -18,27 +18,17 @@ class DialogFlow:
     def get_json(self, http_request):
         return json.loads((http_request.body).decode('utf-8'))
 
-    def get_speech_request(self, request_json):
-        return request_json['content']
+    def get_speech_request(self, json_request):
+        return json_request['result']['resolvedQuery']
 
-    def get_speech_response(self, speech_request):
-        request = self.dialog.text_request()
-        request.lang = 'en'
-        request.query = speech_request
+    def get_speech_response(self, json_request):
+        return json_request["result"]["fulfillment"]["speech"]
 
-        response = request.getresponse()
-        json_response = json.loads(response.read().decode('utf-8'))
-
-        return json_response["result"]["fulfillment"]["speech"]
-
-    def get_webhook_response(self, speech_request):
-        logging.debug(speech_request)
-        speech_response = self.get_speech_response(speech_request)
-        logging.debug(speech_response)
+    def get_webhook_response(self, speech_response):
         return {
             "speech": speech_response,
             "displayText": speech_response,
             "data": {},
-            # "contextOut": [],
+            "contextOut": [],
             "source": "ssu-notice"
         }

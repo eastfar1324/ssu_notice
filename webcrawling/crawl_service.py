@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import requests
 import logging
 
+
 @csrf_exempt
 def crawl(request):
     source_code = requests.get('http://www.ssu.ac.kr/web/kor/plaza_d_01')

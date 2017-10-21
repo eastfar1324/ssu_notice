@@ -2,8 +2,54 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from bs4 import BeautifulSoup
+from models import Notice
 import requests
 import logging
+
+
+def split_category_title(whole_title):
+    whole_title = whole_title.strip()
+    square_bracket_positions = []
+    square_bracket_level = 0
+
+    for i in range(len(whole_title)):
+        if square_bracket_level == 0:
+            if whole_title[i] == '[':
+                square_bracket_positions.append(i)
+                square_bracket_level += 1
+            elif whole_title[i] == ' ':
+                continue
+            else:
+                break
+        else:
+            if whole_title[i] == '[':
+                square_bracket_level += 1
+            elif whole_title[i] == ']':
+                square_bracket_level -= 1
+                if square_bracket_level == 0:
+                    square_bracket_positions.append(i)
+
+    categories = ''
+    title = ''
+
+    num_of_categories = len(square_bracket_positions)//2
+
+    if num_of_categories == 0:
+        return (categories, whole_title)
+    else:
+        for i in range(num_of_categories):
+            square_bracket_start = square_bracket_positions[i*2]
+            square_bracket_end = square_bracket_positions[i*2 + 1]
+
+            category = whole_title[square_bracket_start+1:square_bracket_end].strip()
+            if category not in categories:
+                categories += category + ' '
+            if i == num_of_categories - 1:
+                title = whole_title[square_bracket_end+1:].strip()
+
+        categories = categories.strip()
+
+        return (categories, title)
 
 
 @csrf_exempt
@@ -14,32 +60,14 @@ def crawl(request):
 
     notices = []
     for notice in soup.select('table.bbs-list > tbody > tr.trNotice'):
-        notices.append(notice.select('td.left.bold')[0].a.string + '<br />')
+        (categories, title) = split_category_title(notice.contents[2].a.string)
+        url = notice.contents[2].a['href']
+        owner = notice.contents[4].string
+        date = notice.contents[5].string.replace('.', '-')
+        hits = notice.contents[6].string
+
+        notice_model = Notice.create(title, url, date, hits, categories, owner)
+        notice_model.save()
+
+        notices.append(str(notice_model) + '<br />')
     return HttpResponse(notices)
-
-
-# soup.select('table.bbs-list > tbody > tr.trNotice')
-'''
-<tr class="trNotice">
- <td class="center bold">
-  <img alt="공지" src="/html/portlet/ext/bbs/images/title_notice.gif"/>
- </td>
- <td class="left bold">
-  <a href="http://www.ssu.ac.kr/web/kor/plaza_d_01;jsessionid=rS07FW80aUcSPrtaRmos2i3cH9LWX9jTHTIEkjVedjZyKiRx9Pwytth3uesYBggC?p_p_id=EXT_MIRRORBBS&amp;p_p_lifecycle=0&amp;p_p_state=normal&amp;p_p_mode=view&amp;p_p_col_id=column-1&amp;p_p_col_pos=1&amp;p_p_col_count=2&amp;_EXT_MIRRORBBS_struts_action=%2Fext%2Fmirrorbbs%2Fview_message&amp;_EXT_MIRRORBBS_sCategory=&amp;_EXT_MIRRORBBS_sTitle=&amp;_EXT_MIRRORBBS_sWriter=&amp;_EXT_MIRRORBBS_sTag=&amp;_EXT_MIRRORBBS_sContent=&amp;_EXT_MIRRORBBS_sCategory2=&amp;_EXT_MIRRORBBS_sKeyType=&amp;_EXT_MIRRORBBS_sKeyword=&amp;_EXT_MIRRORBBS_curPage=1&amp;_EXT_MIRRORBBS_messageId=14718527" style="text-decoration:none">
-   2017학년도 동계방학 뉴질랜드 단기어학연수 프로그램 안내
-  </a>
- </td>
- <td>
-  <img alt="첨부 파일" src="/html/portlet/ext/bbs/images/ico_file.gif" style="vertical-align:middle"/>
- </td>
- <td>
-  학생서비스팀
- </td>
- <td>
-  2017.09.29
- </td>
- <td>
-  19
- </td>
-</tr>
-'''

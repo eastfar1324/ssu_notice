@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from django.http import JsonResponse
 from dialogflow import DialogFlow
-from webcrawling.models import Notification
+from webcrawling.models import Notice
 import logging
 
 
@@ -20,12 +19,12 @@ def index(request):
             content_type="application/json; charset=utf-8",
         )
     elif request.method == 'GET':
-        notifications = Notification.objects.all()
+        notifications = Notice.objects.all()
         string = ''
 
         for notification in notifications:
             string += '[{}]{} {} {}<P>'.format(
-                notification.category.encode('utf-8'),
+                notification.categories.encode('utf-8'),
                 notification.title.encode('utf-8'),
                 notification.date,
                 notification.hits

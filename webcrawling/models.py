@@ -1,13 +1,24 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 
-
-class Notification(models.Model):
+class Notice(models.Model):
     title = models.TextField()
     url = models.TextField()
     date = models.DateField()
     hits = models.IntegerField()
-    category = models.CharField(max_length=16)
-    owner = models.CharField(max_length=24)
+    categories = models.TextField()
+    owner = models.TextField()
 
-    def __str__(self):
-        return self.title
+    @classmethod
+    def create(cls, title, url, date, hits, categories, owner):
+        return cls(
+            title=unicode(title),
+            url=url,
+            date=date,
+            hits=hits,
+            categories=unicode(categories),
+            owner=unicode(owner)
+        )
+
+    def __unicode__(self):
+        return u'[%s]%s / %s / %s / %s' % (self.categories, self.title, self.date, self.hits, self.owner)

@@ -86,7 +86,7 @@ if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'HOST': '/cloudsql/ssu-notice:asia-northeast1:ssu-notice-db',
-            'NAME': 'Notice',
+            'NAME': 'Notices',
             'USER': 'eastfar',
             'PASSWORD': 'eastfar',
         }
@@ -103,7 +103,7 @@ else:
             'ENGINE': 'django.db.backends.mysql',
             'HOST': '127.0.0.1',
             'PORT': '3306',
-            'NAME': 'Notice',
+            'NAME': 'Notices',
             'USER': 'eastfar',
             'PASSWORD': 'eastfar',
         }

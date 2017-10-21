@@ -12,19 +12,25 @@ except ImportError:
 
 
 class DialogFlow:
+    dialog = apiai.ApiAI('9e2f805b26a44df3955374bb8278e848')
+
     def __init__(self):
-        self.dialog = apiai.ApiAI('9e2f805b26a44df3955374bb8278e848')
+        pass
 
-    def get_json(self, http_request):
-        return json.loads((http_request.body).decode('utf-8'))
+    @staticmethod
+    def get_json(http_request):
+        return json.loads(http_request.body.decode('utf-8'))
 
-    def get_speech_request(self, json_request):
+    @staticmethod
+    def get_speech_request(json_request):
         return json_request['result']['resolvedQuery']
 
-    def get_speech_response(self, json_request):
+    @staticmethod
+    def get_speech_response(json_request):
         return json_request["result"]["fulfillment"]["speech"]
 
-    def get_webhook_response(self, speech_response):
+    @staticmethod
+    def get_webhook_response(speech_response):
         return {
             "speech": speech_response,
             "displayText": speech_response,

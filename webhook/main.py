@@ -4,14 +4,13 @@ from django.http import JsonResponse
 from dialogflow import DialogFlow
 import logging
 
+
 @csrf_exempt
 def index(request):
-    dialogflow = DialogFlow()
-
     if request.method == 'POST':
-        json_request = dialogflow.get_json(request)
-        speech_response = dialogflow.get_speech_response(json_request)
-        webhook_response = dialogflow.get_webhook_response(speech_response)
+        json_request = DialogFlow.get_json(request)
+        speech_response = DialogFlow.get_speech_response(json_request)
+        webhook_response = DialogFlow.get_webhook_response(speech_response)
 
         return HttpResponse(
             JsonResponse(webhook_response),

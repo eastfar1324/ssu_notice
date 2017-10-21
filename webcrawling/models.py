@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 
+
 class Notice(models.Model):
+    id = models.AutoField(primary_key=True)
+    categories = models.TextField()
     title = models.TextField()
     url = models.TextField()
+    owner = models.TextField()
     date = models.DateField()
     hits = models.IntegerField()
-    categories = models.TextField()
-    owner = models.TextField()
 
     @classmethod
     def create(cls, title, url, date, hits, categories, owner):
@@ -21,4 +23,7 @@ class Notice(models.Model):
         )
 
     def __unicode__(self):
-        return u'[%s]%s / %s / %s / %s' % (self.categories, self.title, self.date, self.hits, self.owner)
+        return u'[%s]%s / %s / %s ' % (self.categories, self.title, self.owner, self.date)
+
+    def __eq__(self, other):
+        return self.__unicode__() == other.__unicode__()

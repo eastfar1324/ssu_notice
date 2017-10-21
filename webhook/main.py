@@ -19,16 +19,11 @@ def index(request):
             content_type="application/json; charset=utf-8",
         )
     elif request.method == 'GET':
-        notifications = Notice.objects.all()
+        notices = Notice.objects.all()
         string = ''
 
-        for notification in notifications:
-            string += '[{}]{} {} {}<P>'.format(
-                notification.categories.encode('utf-8'),
-                notification.title.encode('utf-8'),
-                notification.date,
-                notification.hits
-            )
+        for notice in notices:
+            string += str(notice) + '<p>'
         return HttpResponse(string)
     else:
         return HttpResponse('You are questing by ' + request.method + ' method')

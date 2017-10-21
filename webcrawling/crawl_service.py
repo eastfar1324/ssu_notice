@@ -49,11 +49,10 @@ def split_category_title(whole_title):
 
         categories = categories.strip()
 
-        return (categories, title)
+        return categories, title
 
 
-@csrf_exempt
-def crawl(request):
+def get_notices_crawled():
     source_code = requests.get('http://www.ssu.ac.kr/web/kor/plaza_d_01')
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text, 'lxml')
@@ -66,8 +65,35 @@ def crawl(request):
         date = notice.contents[5].string.replace('.', '-')
         hits = notice.contents[6].string
 
-        notice_model = Notice.create(title, url, date, hits, categories, owner)
-        notice_model.save()
+        notices.append(Notice.create(title, url, date, hits, categories, owner))
 
-        notices.append(str(notice_model) + '<br />')
-    return HttpResponse(notices)
+    notices.reverse()
+    return notices
+
+
+def get_notices_db_synchronized(notices_crawled):
+    notices_db = Notice.objects.order_by('id')[:len(notices_crawled)]
+
+    if len(notices_db) > 0:
+        for i in range(len(notices_db)):
+            if len(notices_crawled) > 0:
+                if notices_db[i] == notices_crawled[0]:
+                    return notices_db[i:]
+    else:
+        return []
+
+
+@csrf_exempt
+def crawl(request):
+    notices_crawled = get_notices_crawled()
+    notices_db = get_notices_db_synchronized(notices_crawled)
+
+    for i in range(len(notices_crawled)):
+        if notices_crawled[i] in notices_db:
+            if notices_crawled[i] == notices_db[i]:
+                notices_db[i].hits = notices_crawled[i].hits
+                notices_db[i].save(update_fields=['hits'])
+        else:
+            notices_crawled[i].save()
+
+    return HttpResponse()

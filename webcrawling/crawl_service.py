@@ -4,7 +4,6 @@ from django.http import HttpResponse
 from bs4 import BeautifulSoup
 from models import Notice
 import requests
-import logging
 
 
 def split_category_title(whole_title):
@@ -32,20 +31,20 @@ def split_category_title(whole_title):
     categories = ''
     title = ''
 
-    num_of_categories = len(square_bracket_positions)//2
+    num_of_categories = len(square_bracket_positions) // 2
 
     if num_of_categories == 0:
         return (categories, whole_title)
     else:
         for i in range(num_of_categories):
-            square_bracket_start = square_bracket_positions[i*2]
-            square_bracket_end = square_bracket_positions[i*2 + 1]
+            square_bracket_start = square_bracket_positions[i * 2]
+            square_bracket_end = square_bracket_positions[i * 2 + 1]
 
-            category = whole_title[square_bracket_start+1:square_bracket_end].strip()
+            category = whole_title[square_bracket_start + 1:square_bracket_end].strip()
             if category not in categories:
                 categories += category + ' '
             if i == num_of_categories - 1:
-                title = whole_title[square_bracket_end+1:].strip()
+                title = whole_title[square_bracket_end + 1:].strip()
 
         categories = categories.strip()
 
@@ -85,15 +84,25 @@ def get_notices_db_synchronized(notices_crawled):
 
 @csrf_exempt
 def crawl(request):
-    notices_crawled = get_notices_crawled()
-    notices_db = get_notices_db_synchronized(notices_crawled)
+    response = None
 
-    for i in range(len(notices_crawled)):
-        if notices_crawled[i] in notices_db:
-            if notices_crawled[i] == notices_db[i]:
-                notices_db[i].hits = notices_crawled[i].hits
-                notices_db[i].save(update_fields=['hits'])
-        else:
-            notices_crawled[i].save()
+    try:
+        notices_crawled = get_notices_crawled()
+        notices_db = get_notices_db_synchronized(notices_crawled)
 
-    return HttpResponse()
+        for i in range(len(notices_crawled)):
+            if notices_crawled[i] in notices_db:
+                if notices_crawled[i] == notices_db[i]:
+                    notices_db[i].hits = notices_crawled[i].hits
+                    notices_db[i].save(update_fields=['hits'])
+            else:
+                notices_crawled[i].save()
+    except Exception as e:
+        result = '%s (%s)' % (e.message, type(e))
+        print(result)
+        response = HttpResponse(result)
+    else:
+        print('crawling is successful!')
+        response = HttpResponse('crawling is successful!')
+    finally:
+        return response

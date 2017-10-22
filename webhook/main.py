@@ -12,7 +12,7 @@ def index(request):
         json_request = DialogFlow.get_json(request)
         logging.debug(json_request)
 
-        webhook_response = DialogFlow.get_webhook_response(json_request)
+        webhook_response = DialogFlow.get_webhook_response(request, json_request)
 
         return webhook_response
     elif request.method == 'GET':

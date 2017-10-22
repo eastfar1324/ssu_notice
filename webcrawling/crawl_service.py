@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.views.decorators.csrf import csrf_exempt
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
 from httplib import HTTPException
 from bs4 import BeautifulSoup
@@ -36,7 +37,7 @@ def split_category_title(whole_title):
     num_of_categories = len(square_bracket_positions) // 2
 
     if num_of_categories == 0:
-        return (categories, whole_title)
+        return categories, whole_title
     else:
         for i in range(num_of_categories):
             square_bracket_start = square_bracket_positions[i * 2]
@@ -97,7 +98,15 @@ def crawl(request):
                     notices_db[i].hits = notices_crawled[i].hits
                     notices_db[i].save(update_fields=['hits'])
             else:
-                notices_crawled[i].save()
+                try:
+                    Notice.objects.get(
+                        title=notices_crawled[i].title,
+                        categories=notices_crawled[i].categories,
+                        owner=notices_crawled[i].owner,
+                        date=notices_crawled[i].date
+                    )
+                except ObjectDoesNotExist:
+                    notices_crawled[i].save()
     except HTTPException:
         crawl(request)
     except Exception as e:

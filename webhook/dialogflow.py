@@ -65,10 +65,10 @@ class DialogFlow:
             how_many = DialogFlow.get_data_from_request(json_request, ['result', 'parameters', 'number'])
             notices = Notice.objects.all().order_by('-id')[:how_many]
         elif intent_name == '02-hits':
-            notices = Notice.objects.filter(hits__gte=10000).order_by('-id')[:10]
+            notices = Notice.objects.filter(hits__gte=10000).order_by('-id')
         elif intent_name == '03-about':
             subject = DialogFlow.get_data_from_request(json_request, ['result', 'parameters', 'any'])
-            notices = Notice.objects.filter(categories__icontains=subject).order_by('-id')[:10]
+            notices = Notice.objects.filter(categories__icontains=subject).order_by('-id')
         elif intent_name == '04-date-on' or intent_name == '05-date-from':
             keyword = DialogFlow.get_data_from_request(json_request, ['result', 'parameters', 'keyword'], 0)
             if keyword == 'on':
@@ -76,10 +76,10 @@ class DialogFlow:
                 year = int(date_on.split('-')[0])
                 month = int(date_on.split('-')[1])
                 day = int(date_on.split('-')[2])
-                notices = Notice.objects.filter(date=datetime(year, month, day)).order_by('-id')[:10]
+                notices = Notice.objects.filter(date=datetime(year, month, day)).order_by('-id')
             elif keyword == 'from':
                 date_from = DialogFlow.get_data_from_request(json_request, ['result', 'parameters', 'date'])
-                notices = Notice.objects.filter(date__gte=date_from).order_by('-id')[:10]
+                notices = Notice.objects.filter(date__gte=date_from).order_by('-id')
             else:
                 pass
         else:

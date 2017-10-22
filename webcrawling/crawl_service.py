@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from httplib import HTTPException
 from bs4 import BeautifulSoup
 from models import Notice
 import requests
+import traceback
 
 
 def split_category_title(whole_title):
@@ -71,13 +73,12 @@ def get_notices_crawled():
 
 
 def get_notices_db_synchronized(notices_crawled):
-    notices_db = Notice.objects.order_by('id')[:len(notices_crawled)]
+    notices_db = Notice.objects.order_by('-id')[:len(notices_crawled):-1]
 
-    if len(notices_db) > 0:
+    if notices_db and notices_crawled:
         for i in range(len(notices_db)):
-            if len(notices_crawled) > 0:
-                if notices_db[i] == notices_crawled[0]:
-                    return notices_db[i:]
+            if notices_db[i] == notices_crawled[0]:
+                return notices_db[i:]
     else:
         return []
 
@@ -97,10 +98,11 @@ def crawl(request):
                     notices_db[i].save(update_fields=['hits'])
             else:
                 notices_crawled[i].save()
+    except HTTPException:
+        crawl(request)
     except Exception as e:
-        result = '%s (%s)' % (e.message, type(e))
-        print(result)
-        response = HttpResponse(result)
+        traceback.print_exc()
+        response = HttpResponse('%s (%s)' % (e.message, type(e)))
     else:
         print('crawling is successful!')
         response = HttpResponse('crawling is successful!')

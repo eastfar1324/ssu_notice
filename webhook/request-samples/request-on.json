@@ -1,0 +1,41 @@
+{
+  "lang": "en",
+  "status": {
+    "errorType": "success",
+    "code": 200
+  },
+  "timestamp": "2017-10-22T14:59:34.826Z",
+  "sessionId": "25d33026-8dbb-f96f-04e1-d5510a221f99",
+  "result": {
+    "parameters": {
+      "date": "2017-10-17",
+      "keyword": [
+        "on"
+      ]
+    },
+    "contexts": [],
+    "resolvedQuery": "show me notices on 2017.10.17",
+    "source": "agent",
+    "score": 0.66715385889942858,
+    "speech": "",
+    "fulfillment": {
+      "messages": [
+        {
+          "speech": "list from 2017-10-17",
+          "type": 0,
+          "id": "fb2cc3a1-dbc1-428b-9f85-ae402a9ca743"
+        }
+      ],
+      "speech": "list from 2017-10-17"
+    },
+    "actionIncomplete": False,
+    "action": "",
+    "metadata": {
+      "intentId": "364c0742-adbd-48cb-8602-075eb878eca9",
+      "webhookForSlotFillingUsed": "false",
+      "intentName": "05-date-from",
+      "webhookUsed": "true"
+    }
+  },
+  "id": "f928b737-178a-468a-a575-a389f1414786"
+}

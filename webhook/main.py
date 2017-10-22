@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-from django.http import JsonResponse
 from dialogflow import DialogFlow
 from webcrawling.models import Notice
 import logging
@@ -11,13 +10,11 @@ import logging
 def index(request):
     if request.method == 'POST':
         json_request = DialogFlow.get_json(request)
-        speech_response = DialogFlow.get_speech_response(json_request)
-        webhook_response = DialogFlow.get_webhook_response(speech_response)
+        logging.debug(json_request)
 
-        return HttpResponse(
-            JsonResponse(webhook_response),
-            content_type="application/json; charset=utf-8",
-        )
+        webhook_response = DialogFlow.get_webhook_response(json_request)
+
+        return webhook_response
     elif request.method == 'GET':
         notices = Notice.objects.all()
         string = ''

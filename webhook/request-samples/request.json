@@ -1,0 +1,36 @@
+{
+  "lang": "en",
+  "status": {
+    "errorType": "success",
+    "code": 200
+  },
+  "timestamp": "2017-10-22T12:34:33.995Z",
+  "sessionId": "acaf458c-2e3a-bc0d-ab04-713ea9f3ae2a",
+  "result": {
+    "parameters": {},
+    "contexts": [],
+    "resolvedQuery": "notices",
+    "source": "agent",
+    "score": 1.0,
+    "speech": "",
+    "fulfillment": {
+      "messages": [
+        {
+          "speech": "This is list you ordered.",
+          "type": 0,
+          "id": "c759ac73-766e-4cb7-b58a-d4362f3d2693"
+        }
+      ],
+      "speech": "This is list you ordered."
+    },
+    "actionIncomplete": False,
+    "action": "",
+    "metadata": {
+      "intentId": "984ea5b8-bd14-4d73-923f-94d9896adb0e",
+      "webhookForSlotFillingUsed": "false",
+      "intentName": "00-notices",
+      "webhookUsed": "true"
+    }
+  },
+  "id": "06556dda-02a4-40dd-85e7-4f03cb08f9f7"
+}

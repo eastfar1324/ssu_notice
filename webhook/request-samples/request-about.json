@@ -1,0 +1,39 @@
+{
+  "lang": "en",
+  "status": {
+    "errorType": "success",
+    "code": 200
+  },
+  "timestamp": "2017-10-22T12:41:06.34Z",
+  "sessionId": "acaf458c-2e3a-bc0d-ab04-713ea9f3ae2a",
+  "result": {
+    "parameters": {
+      "any": "The master's degree",
+      "keyword": "about"
+    },
+    "contexts": [],
+    "resolvedQuery": "let me know notices about The master's degree",
+    "source": "agent",
+    "score": 0.68000000715255737,
+    "speech": "",
+    "fulfillment": {
+      "messages": [
+        {
+          "speech": "list about The master's degree",
+          "type": 0,
+          "id": "d3f6579f-7e43-4564-924d-fa40ac2a3aeb"
+        }
+      ],
+      "speech": "list about The master's degree"
+    },
+    "actionIncomplete": False,
+    "action": "",
+    "metadata": {
+      "intentId": "79466ef1-b853-4bd3-9ab3-3476cf3cc120",
+      "webhookForSlotFillingUsed": "false",
+      "intentName": "03-category",
+      "webhookUsed": "true"
+    }
+  },
+  "id": "f03a4835-0fc4-4e06-ac0b-ee7cf69676fa"
+}

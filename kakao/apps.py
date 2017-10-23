@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
 from django.apps import AppConfig
 
 
-class WebhookConfig(AppConfig):
-    name = 'webhook'
+class KakaoConfig(AppConfig):
+    name = 'kakao'

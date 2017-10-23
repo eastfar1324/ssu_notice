@@ -2,11 +2,11 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
-from httplib import HTTPException
 from bs4 import BeautifulSoup
 from models import Notice
 import requests
 import traceback
+import logging
 
 
 def split_category_title(whole_title):
@@ -73,47 +73,30 @@ def get_notices_crawled():
     return notices
 
 
-def get_notices_db_synchronized(notices_crawled):
-    notices_db = Notice.objects.order_by('-id')[:len(notices_crawled):-1]
-
-    if notices_db and notices_crawled:
-        for i in range(len(notices_db)):
-            if notices_db[i] == notices_crawled[0]:
-                return notices_db[i:]
-    else:
-        return []
-
-
 @csrf_exempt
 def crawl(request):
     response = None
-
     try:
         notices_crawled = get_notices_crawled()
-        notices_db = get_notices_db_synchronized(notices_crawled)
 
-        for i in range(len(notices_crawled)):
-            if notices_crawled[i] in notices_db:
-                if notices_crawled[i] == notices_db[i]:
-                    notices_db[i].hits = notices_crawled[i].hits
-                    notices_db[i].save(update_fields=['hits'])
-            else:
-                try:
-                    Notice.objects.get(
-                        title=notices_crawled[i].title,
-                        categories=notices_crawled[i].categories,
-                        owner=notices_crawled[i].owner,
-                        date=notices_crawled[i].date
-                    )
-                except ObjectDoesNotExist:
-                    notices_crawled[i].save()
-    except HTTPException:
-        crawl(request)
+        for notice_crawled in notices_crawled:
+            try:
+                notice_db = Notice.objects.get(
+                    title=notice_crawled.title,
+                    categories=notice_crawled.categories,
+                    owner=notice_crawled.owner,
+                    date=notice_crawled.date
+                )
+                notice_db.hits = notice_crawled.hits
+                notice_db.save(update_fields=['hits'])
+            except ObjectDoesNotExist:
+                notice_crawled.save()
+                logging.debug('New notice : %s' % str(notice_crawled))
     except Exception as e:
         traceback.print_exc()
         response = HttpResponse('%s (%s)' % (e.message, type(e)))
     else:
-        print('crawling is successful!')
-        response = HttpResponse('crawling is successful!')
+        print('success')
+        response = HttpResponse('success')
     finally:
         return response

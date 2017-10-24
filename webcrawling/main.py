@@ -84,8 +84,7 @@ def crawl(request):
                 notice_db = Notice.objects.get(
                     title=notice_crawled.title,
                     categories=notice_crawled.categories,
-                    owner=notice_crawled.owner,
-                    date=notice_crawled.date
+                    owner=notice_crawled.owner
                 )
                 notice_db.hits = notice_crawled.hits
                 notice_db.save(update_fields=['hits'])

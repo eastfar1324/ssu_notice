@@ -20,6 +20,7 @@ def keyboard(request):
 def message(request):
     json_obj_request = make_json_object(request)
     dialog_request = get(json_obj_request, ['content'])
+    DialogFlow()
     json_obj_response = DialogFlow.dialog_response(dialog_request)
 
     dialog_response = get(json_obj_response, ['result', 'fulfillment', 'speech'])

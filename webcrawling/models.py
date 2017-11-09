@@ -27,3 +27,10 @@ class Notice(models.Model):
 
     def __eq__(self, other):
         return self.__unicode__() == other.__unicode__()
+
+
+class Hits(models.Model):
+    id = models.AutoField(primary_key=True)
+    notice_id = models.PositiveIntegerField()
+    time = models.DateTimeField(auto_now_add=True)
+    hits = models.PositiveIntegerField()

@@ -2,5 +2,4 @@ cron:
 - description: crawl notices every hour
   url: /crawl
   target: beta
-  timezone: Asia/Seoul
-  schedule: every 60 minutes
+  schedule: every 10 minutes

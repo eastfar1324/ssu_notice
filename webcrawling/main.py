@@ -4,6 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
 from bs4 import BeautifulSoup
 from models import Notice
+from models import Hits
 import requests
 import traceback
 import logging
@@ -79,8 +80,9 @@ def crawl(request):
     try:
         notices_crawled = get_notices_crawled()
 
+        num_new = 0
         for notice_crawled in notices_crawled:
-            try:
+            try:  # 기존에 있던 공지사항 이라면
                 notice_db = Notice.objects.get(
                     title=notice_crawled.title,
                     categories=notice_crawled.categories,
@@ -88,12 +90,21 @@ def crawl(request):
                 )
                 notice_db.hits = notice_crawled.hits
                 notice_db.save(update_fields=['hits'])
-            except ObjectDoesNotExist:
+
+                hits = Hits(
+                    notice_id=notice_db.id,
+                    hits=notice_db.hits
+                )
+                hits.save()
+            except ObjectDoesNotExist:  # 새로운 공지사항 이라면
                 notice_crawled.save()
-                logging.debug('New notice : %s' % str(notice_crawled))
+                num_new += 1
+                logging.info('New notice : %s' % str(notice_crawled))
+        if num_new == 0:
+            logging.info('nothing added')
     except Exception as e:
-        traceback.print_exc()
-        response = HttpResponse('%s (%s)' % (e.message, type(e)))
+        logging.exception(e)
+        response = HttpResponse(traceback.format_exc())
     else:
         print('success')
         response = HttpResponse('success')

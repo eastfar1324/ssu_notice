@@ -2,10 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bcef5a4-5e14-4d85-bc47-53d23a3784f5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ssu_notice/db.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/certifi-2017.7.27.1.dist-info/DESCRIPTION.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/certifi-2017.7.27.1.dist-info/INSTALLER" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/certifi-2017.7.27.1.dist-info/METADATA" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/certifi-2017.7.27.1.dist-info/RECORD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/certifi-2017.7.27.1.dist-info/WHEEL" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/certifi-2017.7.27.1.dist-info/metadata.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/certifi-2017.7.27.1.dist-info/top_level.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/DESCRIPTION.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/INSTALLER" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/METADATA" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/RECORD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/WHEEL" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/metadata.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/top_level.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/zip-safe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Canada/East-Saskatchewan" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Africa/Juba" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Africa/Juba" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Africa/Khartoum" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Africa/Khartoum" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Africa/Windhoek" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Africa/Windhoek" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Adak" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Adak" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Anchorage" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Anchorage" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Atka" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Atka" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Detroit" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Detroit" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Grand_Turk" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Grand_Turk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Juneau" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Juneau" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Metlakatla" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Metlakatla" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Nome" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Nome" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Sitka" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Sitka" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Yakutat" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Yakutat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Calcutta" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Calcutta" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Famagusta" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Famagusta" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Kolkata" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Kolkata" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Rangoon" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Rangoon" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Yangon" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Yangon" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Yerevan" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Yerevan" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Eire" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Eire" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Europe/Dublin" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Europe/Dublin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Apia" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Apia" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Fiji" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Fiji" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Midway" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Midway" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Pago_Pago" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Pago_Pago" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Samoa" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Samoa" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Tongatapu" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Tongatapu" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Alaska" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Alaska" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Aleutian" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Aleutian" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Michigan" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Michigan" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Samoa" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Samoa" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kakao/main.py" afterPath="$PROJECT_DIR$/kakao/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webhook/dialogflow.py" afterPath="$PROJECT_DIR$/webhook/dialogflow.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cron.yaml" afterPath="$PROJECT_DIR$/cron.yaml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/certifi/__init__.py" afterPath="$PROJECT_DIR$/lib/certifi/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/certifi/cacert.pem" afterPath="$PROJECT_DIR$/lib/certifi/cacert.pem" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/certifi/core.py" afterPath="$PROJECT_DIR$/lib/certifi/core.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/certifi/weak.pem" afterPath="$PROJECT_DIR$/lib/certifi/weak.pem" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/__init__.py" afterPath="$PROJECT_DIR$/lib/pytz/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/zone.tab" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/zone.tab" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/zone1970.tab" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/zone1970.tab" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webcrawling/admin.py" afterPath="$PROJECT_DIR$/webcrawling/admin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webcrawling/main.py" afterPath="$PROJECT_DIR$/webcrawling/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webcrawling/models.py" afterPath="$PROJECT_DIR$/webcrawling/models.py" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +73,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ssu_notice$models.coverage" NAME="models Coverage Results" MODIFIED="1508624211519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webcrawling" />
     <SUITE FILE_PATH="coverage/ssu_notice$test.coverage" NAME="test Coverage Results" MODIFIED="1508610454796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webcrawling" />
-    <SUITE FILE_PATH="coverage/ssu_notice$ssu_notice.coverage" NAME="ssu_notice Coverage Results" MODIFIED="1510029370876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/ssu_notice$ssu_notice.coverage" NAME="ssu_notice Coverage Results" MODIFIED="1510239962447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -32,32 +87,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dialogflow.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webhook/dialogflow.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="75" column="19" lean-forward="false" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
-              <folding>
-                <element signature="e#24#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ssu_notice/db.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-              <folding>
-                <element signature="e#24#61#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -68,12 +98,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>u</find>
-      <find>logging.debug</find>
-      <find>result</find>
-      <find>DialogFlow.get_data_from_request</find>
-      <find>serialize</find>
-      <find>session</find>
       <find>temp</find>
       <find>Common</find>
       <find>common.</find>
@@ -98,6 +122,12 @@
       <find>keyword</find>
       <find>replace</find>
       <find>DialogFlow</find>
+      <find>Notices</find>
+      <find>logging</find>
+      <find>TIME_</find>
+      <find>TIME_ZONE</find>
+      <find>zone</find>
+      <find>pytz</find>
     </findStrings>
     <replaceStrings>
       <replace>json_request</replace>
@@ -125,14 +155,9 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/ssu_notice/views.py" />
         <option value="$PROJECT_DIR$/webhook/views.py" />
-        <option value="$PROJECT_DIR$/app.yaml" />
         <option value="$PROJECT_DIR$/requirements-vendor.txt" />
         <option value="$PROJECT_DIR$/webhook/models.py" />
-        <option value="$PROJECT_DIR$/webcrawling/admin.py" />
-        <option value="$PROJECT_DIR$/ssu_notice/settings.py" />
         <option value="$PROJECT_DIR$/webcrawling/test.py" />
-        <option value="$PROJECT_DIR$/webcrawling/models.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/webhook/request.json" />
         <option value="$PROJECT_DIR$/webhook/request-from.json" />
         <option value="$PROJECT_DIR$/webhook/request-about.json" />
@@ -145,14 +170,20 @@
         <option value="$PROJECT_DIR$/webhook/apps.py" />
         <option value="$PROJECT_DIR$/kakao/urls.py" />
         <option value="$PROJECT_DIR$/ssu_notice/urls.py" />
-        <option value="$PROJECT_DIR$/cron.yaml" />
         <option value="$PROJECT_DIR$/kakao/temp.json" />
         <option value="$PROJECT_DIR$/ssu_notice/common.py" />
         <option value="$PROJECT_DIR$/webhook/main.py" />
-        <option value="$PROJECT_DIR$/webcrawling/main.py" />
         <option value="$PROJECT_DIR$/kakao/main.py" />
         <option value="$PROJECT_DIR$/webhook/dialogflow.py" />
         <option value="$PROJECT_DIR$/ssu_notice/db.py" />
+        <option value="$PROJECT_DIR$/webcrawling/admin.py" />
+        <option value="$PROJECT_DIR$/app.yaml" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/webcrawling/models.py" />
+        <option value="$PROJECT_DIR$/webcrawling/main.py" />
+        <option value="$PROJECT_DIR$/ssu_notice/settings.py" />
+        <option value="$PROJECT_DIR$/appengine_config.py" />
+        <option value="$PROJECT_DIR$/cron.yaml" />
       </list>
     </option>
   </component>
@@ -170,8 +201,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="67" />
-    <option name="width" value="1373" />
+    <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -252,21 +282,20 @@
             <path>
               <item name="ssu_notice" type="b2602c69:ProjectViewProjectNode" />
               <item name="ssu_notice" type="462c0819:PsiDirectoryNode" />
-              <item name="ssu_notice" type="462c0819:PsiDirectoryNode" />
+              <item name="webcrawling" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ssu_notice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ssu_notice" type="462c0819:PsiDirectoryNode" />
-              <item name="webcrawling" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -432,11 +461,17 @@
       <workItem from="1508819637987" duration="433000" />
       <workItem from="1508826753590" duration="624000" />
       <workItem from="1510029298231" duration="5565000" />
+      <workItem from="1510120354015" duration="429000" />
+      <workItem from="1510201040942" duration="67000" />
+      <workItem from="1510201124816" duration="2250000" />
+      <workItem from="1510228853297" duration="5026000" />
+      <workItem from="1510235345563" duration="4611000" />
+      <workItem from="1510240597709" duration="1284000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103847000" />
+    <option name="totallyTimeSpent" value="117514000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -449,35 +484,35 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="App Config Tool" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33736396" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="App Config Tool" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33736396" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.50250536" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33736396" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.49749464" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31831187" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34073013" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Google Cloud Storage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -490,25 +525,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webcrawling/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/migrations/0002_auto_20171021_1411.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webhook/migrations/__init__.py" />
     <entry file="file://$USER_HOME$/Library/Caches/IntelliJIdea2017.2/python_stubs/-1698384448/unicodedata.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -518,21 +539,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webhook/models.py" />
-    <entry file="file://$PROJECT_DIR$/app.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="15" lean-forward="false" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appengine_config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/IntelliJIdea2017.2/python_stubs/-1698384448/__builtin__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -569,13 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webhook/request-samples/request.json" />
     <entry file="file://$PROJECT_DIR$/webhook/request-samples/request-about.json" />
     <entry file="file://$USER_HOME$/Library/Caches/IntelliJIdea2017.2/python_stubs/-1698384448/datetime.py">
@@ -604,20 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webhook/admin.py" />
     <entry file="file://$PROJECT_DIR$/webcrawling/urls.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -642,13 +627,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kakao/models.py" />
     <entry file="file://$PROJECT_DIR$/kakao/admin.py" />
-    <entry file="file://$PROJECT_DIR$/webcrawling/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webhook/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -667,13 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cron.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -699,20 +670,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kakao/temp.json" />
-    <entry file="file://$PROJECT_DIR$/ssu_notice/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="45" column="30" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webhook/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kakao/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -727,29 +684,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ssu_notice/common.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-          <folding>
-            <element signature="e#24#59#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="66" column="48" lean-forward="false" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -757,19 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding>
-            <element signature="e#24#76#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webhook/dialogflow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="75" column="19" lean-forward="false" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
-          <folding>
-            <element signature="e#24#60#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -777,8 +702,112 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webcrawling/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webcrawling/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webcrawling/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webhook/dialogflow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="14" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webhook/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/IntelliJIdea2017.2/python_stubs/-1698384448/exceptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="90" column="6" lean-forward="false" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pytz/gae.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="36" lean-forward="true" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webcrawling/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appengine_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssu_notice/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="18" column="21" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cron.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webcrawling/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
           <folding>
-            <element signature="e#24#61#0" expanded="true" />
+            <element signature="e#24#76#0" expanded="true" />
           </folding>
         </state>
       </provider>

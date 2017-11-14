@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.views.decorators.csrf import csrf_exempt
-from django.core.exceptions import ObjectDoesNotExist
+from google.appengine.api import urlfetch
 from django.http import HttpResponse
+from django.db import transaction
 from bs4 import BeautifulSoup
 from models import Notice
 from models import Hits
-import requests
 import traceback
+import requests
 import logging
 
 
@@ -56,6 +57,8 @@ def split_category_title(whole_title):
 
 
 def get_notices_crawled():
+    urlfetch.set_default_fetch_deadline(60)
+
     source_code = requests.get('http://www.ssu.ac.kr/web/kor/plaza_d_01')
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text, 'lxml')
@@ -77,36 +80,53 @@ def get_notices_crawled():
 @csrf_exempt
 def crawl(request):
     response = None
+    savepoint = None
+    num_new = 0
+
     try:
         notices_crawled = get_notices_crawled()
 
-        num_new = 0
+        savepoint = transaction.savepoint()
         for notice_crawled in notices_crawled:
-            try:  # 기존에 있던 공지사항 이라면
-                notice_db = Notice.objects.get(
-                    title=notice_crawled.title,
-                    categories=notice_crawled.categories,
-                    owner=notice_crawled.owner
-                )
-                notice_db.hits = notice_crawled.hits
-                notice_db.save(update_fields=['hits'])
+            notice_db = Notice.objects.filter(
+                title=notice_crawled.title,
+                categories=notice_crawled.categories,
+                owner=notice_crawled.owner
+            ).first()
 
-                hits = Hits(
-                    notice_id=notice_db.id,
-                    hits=notice_db.hits
-                )
-                hits.save()
-            except ObjectDoesNotExist:  # 새로운 공지사항 이라면
+            if notice_db is None:  # 새로운 공지사항
                 notice_crawled.save()
                 num_new += 1
                 logging.info('New notice : %s' % str(notice_crawled))
-        if num_new == 0:
-            logging.info('nothing added')
+            else:  # 기존에 있던 공지사항 이라면
+                notice_db.hits = notice_crawled.hits
+                notice_db.save(update_fields=['hits'])
+
+                hits_db = Hits.objects.filter(notice_id=notice_db.id).first()
+
+                if hits_db is None:
+                    if notice_crawled.hits < 600:  # save only brand new notice
+                        hits = Hits(
+                            notice_id=notice_db.id,
+                            hits=notice_db.hits
+                        )
+                        hits.save()
+                else:  # 유효한 hits 이므로 저장
+                    hits = Hits(
+                        notice_id=notice_db.id,
+                        hits=notice_db.hits
+                    )
+                    hits.save()
     except Exception as e:
+        transaction.savepoint_rollback(savepoint)
+        num_new = 0
+
         logging.exception(e)
         response = HttpResponse(traceback.format_exc())
     else:
-        print('success')
-        response = HttpResponse('success')
+        transaction.savepoint_commit(savepoint)
+        response_message = 'success, %d rows added' % num_new
+        logging.info(response_message)
+        response = HttpResponse(response_message)
     finally:
         return response

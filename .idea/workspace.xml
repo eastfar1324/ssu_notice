@@ -1,67 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4bcef5a4-5e14-4d85-bc47-53d23a3784f5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/certifi-2017.7.27.1.dist-info/DESCRIPTION.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/certifi-2017.7.27.1.dist-info/INSTALLER" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/certifi-2017.7.27.1.dist-info/METADATA" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/certifi-2017.7.27.1.dist-info/RECORD" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/certifi-2017.7.27.1.dist-info/WHEEL" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/certifi-2017.7.27.1.dist-info/metadata.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/certifi-2017.7.27.1.dist-info/top_level.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/DESCRIPTION.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/INSTALLER" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/METADATA" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/RECORD" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/WHEEL" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/metadata.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/top_level.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz-2017.2.dist-info/zip-safe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Canada/East-Saskatchewan" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Africa/Juba" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Africa/Juba" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Africa/Khartoum" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Africa/Khartoum" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Africa/Windhoek" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Africa/Windhoek" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Adak" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Adak" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Anchorage" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Anchorage" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Atka" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Atka" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Detroit" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Detroit" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Grand_Turk" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Grand_Turk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Juneau" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Juneau" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Metlakatla" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Metlakatla" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Nome" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Nome" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Sitka" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Sitka" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Yakutat" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/America/Yakutat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Calcutta" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Calcutta" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Famagusta" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Famagusta" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Kolkata" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Kolkata" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Rangoon" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Rangoon" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Yangon" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Yangon" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Yerevan" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Asia/Yerevan" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Eire" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Eire" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Europe/Dublin" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Europe/Dublin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Apia" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Apia" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Fiji" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Fiji" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Midway" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Midway" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Pago_Pago" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Pago_Pago" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Samoa" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Samoa" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Tongatapu" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/Pacific/Tongatapu" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Alaska" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Alaska" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Aleutian" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Aleutian" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Michigan" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Michigan" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Samoa" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/US/Samoa" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cron.yaml" afterPath="$PROJECT_DIR$/cron.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/certifi/__init__.py" afterPath="$PROJECT_DIR$/lib/certifi/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/certifi/cacert.pem" afterPath="$PROJECT_DIR$/lib/certifi/cacert.pem" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/certifi/core.py" afterPath="$PROJECT_DIR$/lib/certifi/core.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/certifi/weak.pem" afterPath="$PROJECT_DIR$/lib/certifi/weak.pem" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/__init__.py" afterPath="$PROJECT_DIR$/lib/pytz/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/zone.tab" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/zone.tab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/pytz/zoneinfo/zone1970.tab" afterPath="$PROJECT_DIR$/lib/pytz/zoneinfo/zone1970.tab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webcrawling/admin.py" afterPath="$PROJECT_DIR$/webcrawling/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webcrawling/main.py" afterPath="$PROJECT_DIR$/webcrawling/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webcrawling/models.py" afterPath="$PROJECT_DIR$/webcrawling/models.py" />
-    </list>
+    <list default="true" id="4bcef5a4-5e14-4d85-bc47-53d23a3784f5" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -73,7 +13,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ssu_notice$models.coverage" NAME="models Coverage Results" MODIFIED="1508624211519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webcrawling" />
     <SUITE FILE_PATH="coverage/ssu_notice$test.coverage" NAME="test Coverage Results" MODIFIED="1508610454796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webcrawling" />
-    <SUITE FILE_PATH="coverage/ssu_notice$ssu_notice.coverage" NAME="ssu_notice Coverage Results" MODIFIED="1510239962447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/ssu_notice$ssu_notice.coverage" NAME="ssu_notice Coverage Results" MODIFIED="1510633278622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -86,8 +26,24 @@
     <expand />
     <select />
   </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webcrawling/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="70" column="14" lean-forward="false" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="14" />
+              <folding>
+                <element signature="e#24#76#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -98,7 +54,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>temp</find>
       <find>Common</find>
       <find>common.</find>
       <find>Common.</find>
@@ -128,6 +83,7 @@
       <find>TIME_ZONE</find>
       <find>zone</find>
       <find>pytz</find>
+      <find>num_new</find>
     </findStrings>
     <replaceStrings>
       <replace>json_request</replace>
@@ -180,10 +136,10 @@
         <option value="$PROJECT_DIR$/app.yaml" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/webcrawling/models.py" />
-        <option value="$PROJECT_DIR$/webcrawling/main.py" />
         <option value="$PROJECT_DIR$/ssu_notice/settings.py" />
         <option value="$PROJECT_DIR$/appengine_config.py" />
         <option value="$PROJECT_DIR$/cron.yaml" />
+        <option value="$PROJECT_DIR$/webcrawling/main.py" />
       </list>
     </option>
   </component>
@@ -272,6 +228,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -282,24 +239,29 @@
             <path>
               <item name="ssu_notice" type="b2602c69:ProjectViewProjectNode" />
               <item name="ssu_notice" type="462c0819:PsiDirectoryNode" />
+              <item name="ssu_notice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ssu_notice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ssu_notice" type="462c0819:PsiDirectoryNode" />
               <item name="webcrawling" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ssu_notice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="ssu_notice" type="462c0819:PsiDirectoryNode" />
+              <item name="webhook" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -467,11 +429,17 @@
       <workItem from="1510228853297" duration="5026000" />
       <workItem from="1510235345563" duration="4611000" />
       <workItem from="1510240597709" duration="1284000" />
+      <workItem from="1510286874466" duration="281000" />
+      <workItem from="1510632972081" duration="51000" />
+      <workItem from="1510633026492" duration="8000" />
+      <workItem from="1510633038342" duration="186000" />
+      <workItem from="1510633258460" duration="6980000" />
+      <workItem from="1510657810511" duration="223000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117514000" />
+    <option name="totallyTimeSpent" value="125243000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -487,7 +455,6 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="App Config Tool" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33736396" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -498,7 +465,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.49749464" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34073013" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3607731" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Google Cloud Storage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -512,6 +479,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="App Config Tool" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33736396" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -530,22 +498,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webhook/migrations/__init__.py" />
-    <entry file="file://$USER_HOME$/Library/Caches/IntelliJIdea2017.2/python_stubs/-1698384448/unicodedata.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="152" column="8" lean-forward="false" selection-start-line="152" selection-start-column="8" selection-end-line="152" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webhook/models.py" />
-    <entry file="file://$USER_HOME$/Library/Caches/IntelliJIdea2017.2/python_stubs/-1698384448/__builtin__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="5059" column="8" lean-forward="false" selection-start-line="5059" selection-start-column="8" selection-end-line="5059" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/IntelliJIdea2017.2/python_stubs/-1698384448/__builtin__.py" />
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -577,13 +530,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/webhook/request-samples/request.json" />
     <entry file="file://$PROJECT_DIR$/webhook/request-samples/request-about.json" />
-    <entry file="file://$USER_HOME$/Library/Caches/IntelliJIdea2017.2/python_stubs/-1698384448/datetime.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="162" column="6" lean-forward="false" selection-start-line="162" selection-start-column="6" selection-end-line="162" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/IntelliJIdea2017.2/python_stubs/-1698384448/datetime.py" />
     <entry file="file://$PROJECT_DIR$/webhook/request-samples/request-on.json" />
     <entry file="file://$PROJECT_DIR$/webhook/request-samples/request-from.json" />
     <entry file="file://$PROJECT_DIR$/lib/urllib3/connectionpool.py">
@@ -698,13 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ssu_notice/db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webcrawling/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -740,13 +680,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/IntelliJIdea2017.2/python_stubs/-1698384448/exceptions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="90" column="6" lean-forward="false" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/IntelliJIdea2017.2/python_stubs/-1698384448/exceptions.py" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pytz/gae.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -754,19 +688,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -774,7 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -782,7 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
           <caret line="18" column="21" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -790,7 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -798,14 +720,50 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webcrawling/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssu_notice/db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Python/2.7/lib/python/site-packages/requests/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-59">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/_threading_local.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="185" column="6" lean-forward="false" selection-start-line="185" selection-start-column="6" selection-end-line="185" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/sdks/google-cloud-sdk/platform/google_appengine/google/appengine/api/urlfetch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="67" column="36" lean-forward="false" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webcrawling/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+        <state relative-caret-position="246">
+          <caret line="70" column="14" lean-forward="false" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="14" />
           <folding>
             <element signature="e#24#76#0" expanded="true" />
           </folding>

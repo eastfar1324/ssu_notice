@@ -9,7 +9,7 @@ class Notice(models.Model):
     url = models.TextField()
     owner = models.TextField()
     date = models.DateField()
-    hits = models.IntegerField()
+    hits = models.PositiveIntegerField()
 
     @classmethod
     def create(cls, title, url, date, hits, categories, owner):

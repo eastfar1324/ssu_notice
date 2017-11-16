@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from django.views.decorators.csrf import csrf_exempt
-from google.appengine.api import urlfetch
 from django.http import HttpResponse
 from django.db import transaction
 from bs4 import BeautifulSoup
@@ -57,8 +56,6 @@ def split_category_title(whole_title):
 
 
 def get_notices_crawled():
-    urlfetch.set_default_fetch_deadline(60)
-
     source_code = requests.get('http://www.ssu.ac.kr/web/kor/plaza_d_01')
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text, 'lxml')

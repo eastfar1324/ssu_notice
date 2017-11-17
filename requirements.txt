@@ -2,5 +2,4 @@ Django==1.11.5
 requests==2.18.4
 apiai==1.2.3
 beautifulsoup4==4.6.0
-django_chartit
 pytz

@@ -1,8 +1,16 @@
-from django.http import HttpResponse
+# -*- coding: utf-8 -*-
+
 from django.db import connection
+from django.shortcuts import render
+from pytz import UnknownTimeZoneError
 from webcrawling.models import Notice
 import pytz
-from pytz import UnknownTimeZoneError
+import sys
+import json
+from django.core.serializers.json import DjangoJSONEncoder
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 
 def get_notice_ids():
@@ -63,15 +71,8 @@ def korea_datetime(datetime_utc):
 
 
 def index(request):
-    result = ''
-
-    '''
     notice_ids = get_notice_ids()
     notices = get_notices(notice_ids)
 
-    for notice in notices:
-        result += str(notice)
-        result += '</br></br>================================================================</br></br>'
-    '''
-
-    return HttpResponse(result)
+    context = {'notices': json.dumps(notices, cls=DjangoJSONEncoder, ensure_ascii=False)}
+    return render(request, 'visualize.html', context)

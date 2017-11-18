@@ -13,10 +13,34 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
+def get_full_title(notice_db):
+    categories = notice_db.categories.split(' ')
+
+    full_title = ''
+    for category in categories:
+        full_title += '[%s]' % category
+    full_title += notice_db.title
+
+    return full_title
+
+
+def korea_datetime(datetime_utc):
+    korea_dt = None
+    try:
+        local_timezone = pytz.timezone('Asia/Seoul')
+    except UnknownTimeZoneError:
+        korea_dt = datetime_utc
+    else:
+        korea_dt = local_timezone.normalize(datetime_utc.replace(tzinfo=pytz.utc).astimezone(local_timezone))
+        # normalize() might be unnecessary
+    finally:
+        return korea_dt
+
+
 def get_notice_ids():
     result = []
     with connection.cursor() as cursor:
-        cursor.execute('select notice_id from webcrawling_hits group by notice_id')
+        cursor.execute('select notice_id from webcrawling_hits group by notice_id order by notice_id desc')
         rows = cursor.fetchall()
 
     for row in rows:
@@ -46,33 +70,25 @@ def get_notices(notice_ids):
     return notices
 
 
-def get_full_title(notice_db):
-    categories = notice_db.categories.split(' ')
+def get_axis_info():
+    with connection.cursor() as cursor:
+        cursor.execute('select min(time) as time_min, max(time) as time_max, max(hits) as hits_max FROM webcrawling_hits')
+        row = cursor.fetchone()
 
-    full_title = ''
-    for category in categories:
-        full_title += '[%s]' % category
-    full_title += notice_db.title
-
-    return full_title
-
-
-def korea_datetime(datetime_utc):
-    korea_dt = None
-    try:
-        local_timezone = pytz.timezone('Asia/Seoul')
-    except UnknownTimeZoneError:
-        korea_dt = datetime_utc
-    else:
-        korea_dt = local_timezone.normalize(datetime_utc.replace(tzinfo=pytz.utc).astimezone(local_timezone))
-        # normalize() might be unnecessary
-    finally:
-        return korea_dt
+    return {
+        'time_min': row[0],
+        'time_max': row[1],
+        'hits_max': row[2],
+    }
 
 
 def index(request):
     notice_ids = get_notice_ids()
     notices = get_notices(notice_ids)
+    axis_info = get_axis_info()
 
-    context = {'notices': json.dumps(notices, cls=DjangoJSONEncoder, ensure_ascii=False)}
+    context = {
+        'notices': json.dumps(notices, cls=DjangoJSONEncoder, ensure_ascii=False),
+        'axis_info': json.dumps(axis_info, cls=DjangoJSONEncoder, ensure_ascii=False)
+    }
     return render(request, 'visualize.html', context)

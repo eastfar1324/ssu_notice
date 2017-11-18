@@ -11,17 +11,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.time.min.js"></script>
     <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
 </head>
 <body>
     <div id="container" class="container"></div>
     <script>
         var notices = JSON.parse('{{ notices|safe }}');
+        var axis_info = JSON.parse('{{ axis_info|safe }}');
 
         notices.forEach(function(notice){
             var notice_id = notice['notice_id'];
             var title = notice['title'];
             var hits_increase = notice['hits_increase'];
+
+            hits_increase.forEach(function(time_hits) {
+                time_hits[0] = (new Date(time_hits[0])).getTime()
+            })
 
             $.tmpl(
                 '<div class="row">' +
@@ -34,11 +40,16 @@
                 {title: title, notice_id: notice_id}
             ).appendTo("#container");
 
-            for (i=0; i < hits_increase.length; i++) {
-                hits_increase[i][0] = i
-            }
-
-            $.plot($('#'+notice_id), [ hits_increase ], {xaxis:{max: 1500} , yaxis: { max: 3000 } });
+            $.plot($('#'+notice_id),[ hits_increase ], {
+                xaxis: {
+                    mode: "time",
+                    minTickSize: [1, "day"],
+                    min: (new Date(axis_info['time_min'])).getTime(),
+                    max: (new Date(axis_info['time_max'])).getTime()
+                },
+                yaxis: {
+                    max: axis_info['hits_max']
+                }});
         });
     </script>
 </body>

@@ -81,9 +81,12 @@ def crawl(request):
     num_new = 0
 
     try:
-        notices_crawled = get_notices_crawled()
-
         savepoint = transaction.savepoint()
+
+        notices_crawled = get_notices_crawled()
+        if len(notices_crawled) == 0:
+            raise Exception('crawling failed!')
+
         for notice_crawled in notices_crawled:
             notice_db = Notice.objects.filter(
                 title=notice_crawled.title,
@@ -102,7 +105,7 @@ def crawl(request):
                 hits_db = Hits.objects.filter(notice_id=notice_db.id).first()
 
                 if hits_db is None:
-                    if notice_crawled.hits < 600:  # save only brand new notice
+                    if notice_db.hits_value < long(600):  # save only brand new notice
                         hits = Hits(
                             notice_id=notice_db.id,
                             hits=notice_db.hits

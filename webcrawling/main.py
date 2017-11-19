@@ -105,7 +105,7 @@ def crawl(request):
                 hits_db = Hits.objects.filter(notice_id=notice_db.id).first()
 
                 if hits_db is None:
-                    if notice_db.hits_value < long(600):  # save only brand new notice
+                    if int(notice_db.hits) < 600:  # 새롭게 올라온 공지사항만 저장
                         hits = Hits(
                             notice_id=notice_db.id,
                             hits=notice_db.hits

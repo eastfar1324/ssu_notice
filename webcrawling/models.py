@@ -34,7 +34,3 @@ class Hits(models.Model):
     notice_id = models.PositiveIntegerField()
     time = models.DateTimeField(auto_now_add=True)
     hits = models.PositiveIntegerField()
-
-    @property
-    def hits_value(self):
-        return self.hits

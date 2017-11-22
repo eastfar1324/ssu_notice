@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-
 from django.db import connection
 from django.shortcuts import render
-from pytz import UnknownTimeZoneError
 from webcrawling.models import Notice
-import pytz
+from django.core.serializers.json import DjangoJSONEncoder
 import sys
 import json
-from django.core.serializers.json import DjangoJSONEncoder
+from ssu_notice.common import korea_timestamp
+from ssu_notice.common import get_parameter_int
+
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -24,71 +24,69 @@ def get_full_title(notice_db):
     return full_title
 
 
-def korea_datetime(datetime_utc):
-    korea_dt = None
-    try:
-        local_timezone = pytz.timezone('Asia/Seoul')
-    except UnknownTimeZoneError:
-        korea_dt = datetime_utc
-    else:
-        korea_dt = local_timezone.normalize(datetime_utc.replace(tzinfo=pytz.utc).astimezone(local_timezone))
-        # normalize() might be unnecessary
-    finally:
-        return korea_dt
+def get_notices(recorded_more_than_days_of, num):
+    assert(recorded_more_than_days_of >= 0 and num > 0)
 
-
-def get_notice_ids():
-    result = []
     with connection.cursor() as cursor:
-        cursor.execute('select notice_id from webcrawling_hits group by notice_id order by notice_id desc')
+        cursor.execute(
+            ' select ' +
+            '    notice_id ' +
+            ' from ' +
+            '    webcrawling_hits ' +
+            ' group by ' +
+            '    notice_id ' +
+            ' having ' +
+            '    (TO_DAYS(max(time))-TO_DAYS(min(time))) > %s ' +
+            ' order by ' +
+            '    notice_id desc ' +
+            ' limit ' +
+            '    %s',
+            [recorded_more_than_days_of, num]
+        )
         rows = cursor.fetchall()
 
-    for row in rows:
-        result.append(int(row[0]))
-
-    return result
-
-
-def get_notices(notice_ids):
     notices = []
-    for notice_id in notice_ids:
+    for row in rows:
+        notice_id = int(row[0])
         notice_db = Notice.objects.get(id=notice_id)
-
-        with connection.cursor() as cursor:
-            cursor.execute('select `time`, `hits` from webcrawling_hits where notice_id=%s', [notice_id])
-            rows = cursor.fetchall()
-
-        hits_increase = []
-        for row in rows:
-            hits_increase.append((korea_datetime(row[0]), int(row[1]),))
 
         notices.append({
             'notice_id': notice_id,
             'title': get_full_title(notice_db),
-            'hits_increase': hits_increase
         })
     return notices
 
 
 def get_axis_info():
     with connection.cursor() as cursor:
-        cursor.execute('select min(time) as time_min, max(time) as time_max, max(hits) as hits_max FROM webcrawling_hits')
+        cursor.execute(
+            ' select ' +
+            '    min(time) as time_min, ' +
+            '    max(time) as time_max, ' +
+            '    max(hits) as hits_max  ' +
+            ' FROM ' +
+            '    webcrawling_hits '
+        )
         row = cursor.fetchone()
 
     return {
-        'time_min': row[0],
-        'time_max': row[1],
+        'time_min': korea_timestamp(row[0]),
+        'time_max': korea_timestamp(row[1]),
         'hits_max': row[2],
     }
 
 
 def index(request):
-    notice_ids = get_notice_ids()
-    notices = get_notices(notice_ids)
+    days_min = get_parameter_int(request, 'days_min', 3)
+    num = get_parameter_int(request, 'num', 100)
+
+    notices = get_notices(recorded_more_than_days_of=days_min, num=num)
     axis_info = get_axis_info()
 
     context = {
         'notices': json.dumps(notices, cls=DjangoJSONEncoder, ensure_ascii=False),
-        'axis_info': json.dumps(axis_info, cls=DjangoJSONEncoder, ensure_ascii=False)
+        'axis_info': json.dumps(axis_info, cls=DjangoJSONEncoder, ensure_ascii=False),
+        'days_min': days_min,
+        'num': len(notices)
     }
     return render(request, 'visualize.html', context)

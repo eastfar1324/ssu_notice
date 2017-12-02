@@ -10,6 +10,7 @@ class Notice(models.Model):
     owner = models.TextField()
     date = models.DateField()
     hits = models.PositiveIntegerField()
+    exponent = models.FloatField(default=0.0)
 
     @classmethod
     def create(cls, title, url, date, hits, categories, owner):

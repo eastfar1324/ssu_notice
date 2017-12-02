@@ -42,7 +42,7 @@
                 '   </div>' +
                 '   <div class="row">' +
                 '     <button id="${notice_id}_data" type="button" class="btn btn-outline-primary btn-data">데이터 가져오기</button>' +
-                '     <h4 id="${notice_id}_degree"></h4>' +
+                '     <h4 id="${notice_id}_exponent"></h4>' +
                 '   </div>' +
                 '   <div class="row" style="height:300px">' +
                 '      <div id="${notice_id}_graph" class="col"></div>' +
@@ -67,13 +67,13 @@
             $('#'+notice_id+'_data').click(function() {
                 $.getJSON("visualize/get_hits", { notice_id : notice_id }, function( data ) {
                     var hits_increase = data['hits_increase'];
-                    var degree = data['degree'];
+                    var exponent = data['exponent'];
 
                     var regression = [];
                     for(var i=0; i<hits_increase.length; i++) {
                         var time = hits_increase[i][0];
                         var x = time - hits_increase[0][0];
-                        regression[i] = [time, Math.pow(x, degree)]
+                        regression[i] = [time, Math.pow(x, exponent)]
                     }
 
                     $.plot($('#'+notice_id+'_graph'),[ hits_increase, regression ], {
@@ -88,7 +88,7 @@
                         }
                     });
                     $('#'+notice_id+'_data').hide();
-                    $('#'+notice_id+'_degree').html('(x-'+(hits_increase[0][0]-time_min)+')^<span style="color:red">'+degree+'</span>')
+                    $('#'+notice_id+'_exponent').html('(x-'+(hits_increase[0][0]-time_min)+')^<span style="color:red">'+exponent+'</span>')
                 });
             })
         });

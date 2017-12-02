@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-from webcrawling.models import Notice
-from datetime import datetime
+from django.db import connection
 from django.db.models import Q
+from datetime import datetime
+from webcrawling.models import Notice
+from common import *
 
 
 class DB:
@@ -49,3 +51,49 @@ class DB:
             pass
 
         return notices, service_message
+
+    @staticmethod
+    def get_hits_increase(notice_id, time_relative=False):
+        with connection.cursor() as cursor:
+            cursor.execute(
+                ' select ' +
+                '   time, hits ' +
+                ' from ' +
+                '   webcrawling_hits ' +
+                ' where ' +
+                '   notice_id=%s ',
+                [notice_id]
+            )
+            rows = cursor.fetchall()
+
+        first_timestamp = korea_timestamp(rows[0][0])
+        hits_increase = []
+        for row in rows:
+            row_time = korea_timestamp(row[0])
+            row_hits = int(row[1])
+
+            if time_relative:
+                hits_increase.append((row_time - first_timestamp, row_hits,))
+            else:
+                hits_increase.append((row_time, row_hits,))
+
+        return hits_increase
+
+    @staticmethod
+    def get_axis_info():
+        with connection.cursor() as cursor:
+            cursor.execute(
+                ' select ' +
+                '    min(time) as time_min, ' +
+                '    max(time) as time_max, ' +
+                '    max(hits) as hits_max  ' +
+                ' FROM ' +
+                '    webcrawling_hits '
+            )
+            row = cursor.fetchone()
+
+        return {
+            'time_min': korea_timestamp(row[0]),
+            'time_max': korea_timestamp(row[1]),
+            'hits_max': row[2],
+        }

@@ -1,9 +1,9 @@
 from django.conf.urls import url
 import visualize
-import get_hits
 
 
 urlpatterns = [
-    url('get_hits', get_hits.get),
+    url('analyze_all', visualize.analyze_all),
+    url('get_hits', visualize.get_hits_increase),
     url('^$', visualize.index),
 ]

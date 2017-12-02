@@ -8,6 +8,8 @@ from models import Hits
 import traceback
 import requests
 import logging
+import numpy
+from ssu_notice.db import DB
 
 
 def split_category_title(whole_title):
@@ -74,6 +76,38 @@ def get_notices_crawled():
     return notices
 
 
+def regression(hits_increase_time_relative):
+    def get_deviation(hits_increase, degree):
+        deviation = 0.0
+        for hits in hits_increase:
+            deviation += (hits[0] ** degree - hits[1]) ** 2
+        return deviation
+
+    degrees = numpy.linspace(0.0, 0.5, num=1000)
+    low = [0, get_deviation(hits_increase_time_relative, degrees[0])]
+    high = [len(degrees)-1, get_deviation(hits_increase_time_relative, degrees[len(degrees)-1])]
+    mid = []
+
+    while abs(low[0] - high[0]) > 1:
+        mid_index = (low[0] + high[0]) // 2
+        mid = [mid_index, get_deviation(hits_increase_time_relative, degrees[mid_index])]
+
+        if low[1] < mid[1] < high[1]:
+            high = mid
+        elif low[1] > mid[1] > high[1]:
+            low = mid
+        else:
+            left = [mid_index-1, get_deviation(hits_increase_time_relative, degrees[mid_index-1])]
+            right = [mid_index+1, get_deviation(hits_increase_time_relative, degrees[mid_index+1])]
+
+            if left[1] < right[1]:
+                high = mid
+            else:
+                low = mid
+
+    return degrees[mid[0]]
+
+
 @csrf_exempt
 def crawl(request):
     response = None
@@ -104,22 +138,23 @@ def crawl(request):
 
                 hits_db = Hits.objects.filter(notice_id=notice_db.id).first()
 
-                if hits_db is None:
-                    if int(notice_db.hits) < 600:  # 새롭게 올라온 공지사항만 저장
-                        hits = Hits(
-                            notice_id=notice_db.id,
-                            hits=notice_db.hits
-                        )
-                        hits.save()
-                else:  # 유효한 hits 이므로 저장
+                if (hits_db is None and int(notice_db.hits) < 600) or hits_db is not None:
                     hits = Hits(
                         notice_id=notice_db.id,
                         hits=notice_db.hits
                     )
                     hits.save()
+
+                    hits_increase_time_relative = DB.get_hits_increase(notice_db.id, True)
+                    exponent = regression(hits_increase_time_relative)
+                    notice_db.exponent = exponent
+                    notice_db.save(update_fields=['exponent'])
+
+                    num_hits = Hits.objects.filter(notice_id=notice_db.id).count()
+                    if num_hits == 10 and exponent > 0.37:
+                        pass  # push 보내기
     except Exception as e:
         transaction.savepoint_rollback(savepoint)
-        num_new = 0
 
         logging.exception(e)
         response = HttpResponse(traceback.format_exc())

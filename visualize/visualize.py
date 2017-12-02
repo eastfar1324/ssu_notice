@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
 from django.db import connection
 from django.shortcuts import render
-from webcrawling.models import Notice
+from django.http import HttpResponse
+from django.http import JsonResponse
 from django.core.serializers.json import DjangoJSONEncoder
+from ssu_notice.common import *
+from webcrawling.models import Notice
+from ssu_notice.db import DB
+from webcrawling.main import regression
 import sys
-import json
-from ssu_notice.common import korea_timestamp
-from ssu_notice.common import get_parameter_int
-
+import logging
+import traceback
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -57,31 +60,12 @@ def get_notices(recorded_more_than_days_of, num):
     return notices
 
 
-def get_axis_info():
-    with connection.cursor() as cursor:
-        cursor.execute(
-            ' select ' +
-            '    min(time) as time_min, ' +
-            '    max(time) as time_max, ' +
-            '    max(hits) as hits_max  ' +
-            ' FROM ' +
-            '    webcrawling_hits '
-        )
-        row = cursor.fetchone()
-
-    return {
-        'time_min': korea_timestamp(row[0]),
-        'time_max': korea_timestamp(row[1]),
-        'hits_max': row[2],
-    }
-
-
 def index(request):
     days_min = get_parameter_int(request, 'days_min', 3)
     num = get_parameter_int(request, 'num', 100)
 
     notices = get_notices(recorded_more_than_days_of=days_min, num=num)
-    axis_info = get_axis_info()
+    axis_info = DB.get_axis_info()
 
     context = {
         'notices': json.dumps(notices, cls=DjangoJSONEncoder, ensure_ascii=False),
@@ -90,3 +74,47 @@ def index(request):
         'num': len(notices)
     }
     return render(request, 'visualize.html', context)
+
+
+def get_hits_increase(request):
+    notice_id = request.GET.get('notice_id')
+    assert notice_id
+    notice_id = int(notice_id)
+
+    hits_increase = DB.get_hits_increase(notice_id)
+
+    exponent = Notice.objects.filter(id=notice_id).values_list('exponent', flat=True)[0]
+
+    return JsonResponse({
+        'hits_increase': hits_increase,
+        'exponent': exponent
+    })
+
+
+def analyze_all(request):
+    response = None
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                ' select ' +
+                '    notice_id ' +
+                ' from ' +
+                '    webcrawling_hits ' +
+                ' group by ' +
+                '    notice_id '
+            )
+        rows = cursor.fetchall()
+
+        for row in rows:
+            notice_id = int(row[0])
+            hits_increase_time_relative = DB.get_hits_increase(notice_id, True)
+            notice_db = Notice.objects.filter(id=notice_id).first()
+            notice_db.exponent = regression(hits_increase_time_relative)
+            notice_db.save(update_fields=['exponent'])
+    except Exception as e:
+        logging.exception(e)
+        response = HttpResponse(traceback.format_exc())
+    else:
+        response = HttpResponse('success')
+    finally:
+        return response

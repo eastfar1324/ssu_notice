@@ -32,6 +32,7 @@ class DialogFlow:
     def dialog_response(dialog_request):
         request = DialogFlow.dialog.text_request()
         request.query = dialog_request
+        request.lang = 'ko-KR'
 
         response = request.getresponse()
         json_obj_response = make_json_object(response)

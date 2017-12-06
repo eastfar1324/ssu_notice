@@ -5,4 +5,4 @@ from django.apps import AppConfig
 
 
 class KakaoConfig(AppConfig):
-    name = 'kakao'
+    name = 'client_kakao'

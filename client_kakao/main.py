@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
-from ssu_notice.common import make_json_object
-from webhook.dialogflow import DialogFlow
-from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
+from django.core.validators import URLValidator
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from ssu_notice.common import get
-import json
+from ssu_notice.common import make_json_object
+from ssu_notice.dialogflow import DialogFlow
 import logging
+import json
 
 
 def keyboard(request):
@@ -21,7 +21,7 @@ def message(request):
     json_obj_request = make_json_object(request)
     dialog_request = get(json_obj_request, ['content'])
     DialogFlow()
-    json_obj_response = DialogFlow.dialog_response(dialog_request)
+    json_obj_response = DialogFlow.response_json_obj(dialog_request)
 
     dialog_response = get(json_obj_response, ['result', 'fulfillment', 'speech'])
 

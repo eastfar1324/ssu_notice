@@ -4,5 +4,5 @@ from __future__ import unicode_literals
 from django.apps import AppConfig
 
 
-class VisualizeConfig(AppConfig):
-    name = 'visualize'
+class IosConfig(AppConfig):
+    name = 'client_ios'

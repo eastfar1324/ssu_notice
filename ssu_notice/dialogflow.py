@@ -29,7 +29,7 @@ class DialogFlow:
         pass
 
     @staticmethod
-    def dialog_response(dialog_request):
+    def response_json_obj(dialog_request):  # 대화형 요청에 대한 json 응답 반환
         request = DialogFlow.dialog.text_request()
         request.query = dialog_request
         request.lang = 'ko-KR'
@@ -40,11 +40,11 @@ class DialogFlow:
         return json_obj_response
 
     @staticmethod
-    def get_webhook_response(json_obj_request):
+    def response_webhook(json_obj_request):  # 웹훅 요청에 대한 응답
         intent_name = get(json_obj_request, ['result', 'metadata', 'intentName'])
 
         result = ''
-        if intent_name == 'list-detail':
+        if intent_name == 'list-detail':  # 몇 번을 보시겠어요? 에 대한 처리
             notices = json.loads(get(json_obj_request, ['result', 'contexts', 0, 'parameters', 'notices']))
             number = int(get(json_obj_request, ['result', 'parameters', 'number']).encode('utf-8'))
 
@@ -59,16 +59,16 @@ class DialogFlow:
                 }),
                 content_type="application/json; charset=utf-8",
             )
-        else:
-            notices, service_message = DB.get_notices(intent_name, get(json_obj_request, ['result', 'parameters']))
+        else:  # 초기 요청에 대한 처리
+            notices = DB.get_notices(intent_name, get(json_obj_request, ['result', 'parameters']))
 
             if not notices:
                 result += get(json_obj_request, ['result', 'fulfillment', 'speech'])
             else:
-                result += service_message
+                result += '"%s"에 대한 결과에요.\n\n' % get(json_obj_request, ['result', 'resolvedQuery'])
                 for i in range(len(notices)):
                     result += '%d : %s\n\n' % (i+1, notices[i].title.encode('utf-8', 'ignore'))
-                result += 'Please let me know the number you want to check : '
+                result += '몇 번을 확인하시겠어요? : '
 
             context = get(json_obj_request, ['result', 'contexts', 0])
             context['parameters']['notices'] = serializers.serialize('json', notices)

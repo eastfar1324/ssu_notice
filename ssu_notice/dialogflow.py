@@ -63,7 +63,7 @@ class DialogFlow:
             notices = DB.get_notices(intent_name, get(json_obj_request, ['result', 'parameters']))
 
             if not notices:
-                result += get(json_obj_request, ['result', 'fulfillment', 'speech'])
+                result += '"%s"에 대한 결과를 찾을 수 없어요.\n\n' % get(json_obj_request, ['result', 'resolvedQuery'])
             else:
                 result += '"%s"에 대한 결과에요.\n\n' % get(json_obj_request, ['result', 'resolvedQuery'])
                 for i in range(len(notices)):

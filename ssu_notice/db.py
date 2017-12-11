@@ -4,6 +4,7 @@ from django.db.models import Q
 from datetime import datetime
 from webcrawling.models import Notice
 from common import *
+import logging
 
 
 class DB:
@@ -39,6 +40,8 @@ class DB:
         elif intent_name == '05-date-from':
             date_from = parameters['date']
             notices = Notice.objects.filter(date__gte=date_from).order_by('-id')
+        elif intent_name == '06-recommend':
+            notices = Notice.objects.all().order_by('-exponent')[:10]
         else:
             pass
 

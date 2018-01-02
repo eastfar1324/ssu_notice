@@ -15,12 +15,26 @@ class DB:
     def get_notices(intent_name, parameters):
         notices = []
 
-        if intent_name == '00-notices':
+        if intent_name == 'notice-01-common':
             notices = Notice.objects.all().order_by('-id')[:20]
-        elif intent_name == '01-recent':
+        elif intent_name == 'notice-02-recent':
             how_many = int(parameters['how_many'])
             notices = Notice.objects.all().order_by('-id')[:how_many]
-        elif intent_name == '02-hits':
+        elif intent_name == 'notice-03-important':
+            notices = Notice.objects.all().order_by('-exponent')[:10]
+        elif intent_name == 'notice-04-search':
+            keyword = parameters['keyword']
+            notices = Notice.objects.filter(Q(title__icontains=keyword) | Q(categories__icontains=keyword)).order_by('-id')
+        elif intent_name == 'notice-05-date-from':
+            date_from = parameters['date']
+            notices = Notice.objects.filter(date__gte=date_from).order_by('-id')
+        elif intent_name == 'notice-06-date-on':
+            date_on = parameters['date']
+            year = int(date_on.split('-')[0])
+            month = int(date_on.split('-')[1])
+            day = int(date_on.split('-')[2])
+            notices = Notice.objects.filter(date=datetime(year, month, day)).order_by('-id')
+        elif intent_name == 'notice-07-hits':
             more_than = parameters['more_than']
             if more_than == '':
                 more_than = 10000
@@ -28,20 +42,6 @@ class DB:
             else:
                 more_than = int(more_than)
                 notices = Notice.objects.filter(hits__gte=more_than).order_by('-id')
-        elif intent_name == '03-search':
-            keyword = parameters['keyword']
-            notices = Notice.objects.filter(Q(title__icontains=keyword) | Q(categories__icontains=keyword)).order_by('-id')
-        elif intent_name == '04-date-on':
-            date_on = parameters['date']
-            year = int(date_on.split('-')[0])
-            month = int(date_on.split('-')[1])
-            day = int(date_on.split('-')[2])
-            notices = Notice.objects.filter(date=datetime(year, month, day)).order_by('-id')
-        elif intent_name == '05-date-from':
-            date_from = parameters['date']
-            notices = Notice.objects.filter(date__gte=date_from).order_by('-id')
-        elif intent_name == '06-recommend':
-            notices = Notice.objects.all().order_by('-exponent')[:10]
         else:
             pass
 

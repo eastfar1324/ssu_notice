@@ -1,5 +1,5 @@
 cron:
-- description: crawl notices every 30 minutes
+- description: crawl notices every 60 minutes
   url: /crawl
   target: beta
-  schedule: every 30 minutes
+  schedule: every 60 minutes

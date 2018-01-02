@@ -97,7 +97,7 @@ def regression(hits_increase_time_relative):
         elif low[1] > mid[1] > high[1]:
             low = mid
         else:
-            left = [mid_index-1, get_deviation(hits_increase_time_relative, degrees[mid_index-1])]
+            left = [mid_index-1, get_deviation(hits_increase_time_relative,degrees[mid_index-1])]
             right = [mid_index+1, get_deviation(hits_increase_time_relative, degrees[mid_index+1])]
 
             if left[1] < right[1]:

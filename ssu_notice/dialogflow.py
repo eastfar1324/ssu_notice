@@ -2,6 +2,7 @@
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.core import serializers
+from difflib import SequenceMatcher
 from ssu_notice.common import get
 from ssu_notice.common import make_json_object
 from ssu_notice.db import DB
@@ -29,9 +30,9 @@ class DialogFlow:
         pass
 
     @staticmethod
-    def response_json_obj(dialog_request):  # 대화형 요청에 대한 json 응답 반환
+    def response_json_obj(speech_request):  # 미확인 대화 요청에 대한 json 응답 반환
         request = DialogFlow.dialog.text_request()
-        request.query = dialog_request
+        request.query = speech_request
         request.lang = 'ko-KR'
 
         response = request.getresponse()
@@ -40,45 +41,37 @@ class DialogFlow:
         return json_obj_response
 
     @staticmethod
-    def response_webhook(json_obj_request):  # 웹훅 요청에 대한 응답
+    def response_webhook(json_obj_request):  # 공지사항 웹훅 요청에 대한 응답
         intent_name = get(json_obj_request, ['result', 'metadata', 'intentName'])
 
-        result = ''
-        if intent_name == 'list-detail':  # 몇 번을 보시겠어요? 에 대한 처리
-            notices = json.loads(get(json_obj_request, ['result', 'contexts', 0, 'parameters', 'notices']))
-            number = int(get(json_obj_request, ['result', 'parameters', 'number']).encode('utf-8'))
-
-            result = notices[number-1]['fields']['url']
-            return HttpResponse(
-                JsonResponse({
-                    "speech": result,
-                    "displayText": result,
-                    "data": {},
-                    "contextOut": [],
-                    "source": "ssu-notice"
-                }),
-                content_type="application/json; charset=utf-8",
-            )
-        else:  # 초기 요청에 대한 처리
+        speech, display_text, context_out = None, None, []
+        if intent_name != 'link':  # 초기 요청에 대한 처리
             notices = DB.get_notices(intent_name, get(json_obj_request, ['result', 'parameters']))
 
-            if not notices:
-                result += '"%s"에 대한 결과를 찾을 수 없어요.\n\n' % get(json_obj_request, ['result', 'resolvedQuery'])
-            else:
-                result += '"%s"에 대한 결과에요.\n\n' % get(json_obj_request, ['result', 'resolvedQuery'])
-                for i in range(len(notices)):
-                    result += '%d : %s\n\n' % (i+1, notices[i].title.encode('utf-8', 'ignore'))
-                result += '몇 번을 확인하시겠어요? : '
+            speech = ('"%s"에 대한 결과에요.' if notices else '"%s"에 대한 결과를 찾을 수 없어요.') % get(json_obj_request, ['result', 'resolvedQuery'])
+            display_text = speech
 
             context = get(json_obj_request, ['result', 'contexts', 0])
             context['parameters']['notices'] = serializers.serialize('json', notices)
-            return HttpResponse(
-                JsonResponse({
-                    "speech": result,
-                    "displayText": result,
-                    "data": {},
-                    "contextOut": [context],
-                    "source": "ssu-notice"
-                }),
-                content_type="application/json; charset=utf-8",
-            )
+            context_out.append(context)
+
+        else:  # 특정 공지사항 url 요청에 대한 처리
+            notices = json.loads(get(json_obj_request, ['result', 'contexts', 0, 'parameters', 'notices']))
+            requested_title = get(json_obj_request, ['result', 'resolvedQuery'])
+            requested_notices = []
+            for notice in notices:
+                if SequenceMatcher(None, requested_title, notice['fields']['title']).ratio() > 0.9:
+                    requested_notices.append(notice)
+            speech = requested_title
+            display_text = requested_notices[0]['fields']['url']
+
+        return HttpResponse(
+            JsonResponse({
+                "speech": speech,
+                "displayText": display_text,
+                "data": {},
+                "contextOut": context_out,
+                "source": "ssu-notice"
+            }),
+            content_type="application/json; charset=utf-8",
+        )

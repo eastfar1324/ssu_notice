@@ -4,5 +4,5 @@ from __future__ import unicode_literals
 from django.apps import AppConfig
 
 
-class IosConfig(AppConfig):
-    name = 'client_ios'
+class ClientLearnConfig(AppConfig):
+    name = 'client_learn'

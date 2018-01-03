@@ -61,4 +61,7 @@ def message(request):
             unknown.count += 1
             unknown.save(update_fields=['count'])
 
+            if unknown.speech_response is not None:
+                result['message']['text'] = unknown.speech_response
+
     return JsonResponse(result)

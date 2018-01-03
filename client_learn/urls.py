@@ -1,6 +1,8 @@
 from django.conf.urls import url
-from main import *
+from views import *
+
 
 urlpatterns = [
+    url('teach', teach),
     url('^$', index),
 ]

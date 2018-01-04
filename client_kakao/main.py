@@ -42,10 +42,11 @@ def message(request):
 
     if 'notice' in intent_name:
         notices = json.loads(get(json_obj_response, ['result', 'contexts', 0, 'parameters', 'notices']))
-        result['keyboard'] = {
-            "type": "buttons",
-            "buttons": [notice['fields']['title'] for notice in notices]
-        }
+        if len(notices) > 0:
+            result['keyboard'] = {
+                "type": "buttons",
+                "buttons": [notice['fields']['title'] for notice in notices]
+            }
     elif intent_name == 'link':
         url = get(json_obj_response, ['result', 'fulfillment', 'displayText'])
         result['message']['message_button'] = {

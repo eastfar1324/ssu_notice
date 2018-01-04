@@ -4,6 +4,7 @@ from django.db.models import Q
 from datetime import datetime
 from webcrawling.models import Notice
 from common import *
+import operator
 import logging
 
 
@@ -23,8 +24,16 @@ class DB:
         elif intent_name == 'notice-03-important':
             notices = Notice.objects.all().order_by('-exponent')[:10]
         elif intent_name == 'notice-04-search':
-            keyword = parameters['keyword']
-            notices = Notice.objects.filter(Q(title__icontains=keyword) | Q(categories__icontains=keyword)).order_by('-id')
+            keywords = []
+            for sub_keyword in parameters['keyword'].split():
+                special_character_removed = ''.join(ch for ch in sub_keyword if ch.isalnum())
+                if len(special_character_removed) > 1:
+                    keywords.append(special_character_removed)
+
+            condition = reduce(operator.or_, [Q(title__icontains=keyword) for keyword in keywords])
+            condition |= reduce(operator.or_, [Q(categories__icontains=keyword) for keyword in keywords])
+
+            notices = Notice.objects.filter(condition).order_by('-id')
         elif intent_name == 'notice-05-date-from':
             date_from = parameters['date']
             notices = Notice.objects.filter(date__gte=date_from).order_by('-id')

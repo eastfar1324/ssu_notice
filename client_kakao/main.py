@@ -16,6 +16,32 @@ def keyboard(request):
     })
 
 
+def search(speech_request):
+    json_obj_response = DialogFlow.response_json_obj(speech_request)
+    speech_response = get(json_obj_response, ['result', 'fulfillment', 'speech'])
+    notices = json.loads(get(json_obj_response, ['result', 'contexts', 0, 'parameters', 'notices']))
+
+    if len(notices) > 0:
+        response_keyboard = {
+            "type": "buttons",
+            "buttons": [notice['fields']['title'] for notice in notices]
+        }
+    else:
+        response_keyboard = {
+            "type": "text"
+        }
+
+    return {
+        'message': {
+            'text': speech_response
+        },
+        'keyboard': response_keyboard
+    }
+
+
+
+
+
 @csrf_exempt
 def message(request):
     json_obj_request = make_json_object(request)
@@ -58,11 +84,14 @@ def message(request):
 
         if unknown is None:
             Unknown.create(speech_request).save()
+            result = search('%s 검색' % speech_request)
         else:
             unknown.count += 1
             unknown.save(update_fields=['count'])
 
-            if unknown.speech_response is not None:
+            if unknown.speech_response is None:
+                result = search('%s 검색' % speech_request)
+            else:
                 result['message']['text'] = unknown.speech_response
 
     return JsonResponse(result)

@@ -39,9 +39,6 @@ def search(speech_request):
     }
 
 
-
-
-
 @csrf_exempt
 def message(request):
     json_obj_request = make_json_object(request)
@@ -74,11 +71,27 @@ def message(request):
                 "buttons": [notice['fields']['title'] for notice in notices]
             }
     elif intent_name == 'link':
-        url = get(json_obj_response, ['result', 'fulfillment', 'displayText'])
-        result['message']['message_button'] = {
-            "label": '보러가기',
-            "url": url
-        }
+        try:
+            url = get(json_obj_response, ['result', 'fulfillment', 'displayText'])
+        except KeyError:
+            unknown = Unknown.objects.filter(speech_request=speech_request).first()
+
+            if unknown is None:
+                Unknown.create(speech_request).save()
+                result = search('%s 검색' % speech_request)
+            else:
+                unknown.count += 1
+                unknown.save(update_fields=['count'])
+
+                if unknown.speech_response is None:
+                    result = search('%s 검색' % speech_request)
+                else:
+                    result['message']['text'] = unknown.speech_response
+        else:
+            result['message']['message_button'] = {
+                "label": '보러가기',
+                "url": url
+            }
     elif intent_name == 'Default Fallback Intent':
         unknown = Unknown.objects.filter(speech_request=speech_request).first()
 

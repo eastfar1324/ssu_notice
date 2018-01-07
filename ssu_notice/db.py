@@ -27,8 +27,7 @@ class DB:
             keywords = []
             for sub_keyword in parameters['keyword'].split():
                 special_character_removed = ''.join(ch for ch in sub_keyword if ch.isalnum())
-                if len(special_character_removed) > 1:
-                    keywords.append(special_character_removed)
+                keywords.append(special_character_removed)
 
             condition = reduce(operator.or_, [Q(title__icontains=keyword) for keyword in keywords])
             condition |= reduce(operator.or_, [Q(categories__icontains=keyword) for keyword in keywords])

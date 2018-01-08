@@ -41,17 +41,16 @@ def search(speech_request):
 
 @csrf_exempt
 def message(request):
-    json_obj_request = make_json_object(request)
-    speech_request = get(json_obj_request, ['content'])
-    logging.debug(speech_request)
-
     DialogFlow()
+    json_obj_request = make_json_object(request)
+    user_key = get(json_obj_request, ['user_key'])
+    speech_request = get(json_obj_request, ['content'])
     json_obj_response = DialogFlow.response_json_obj(speech_request)
     intent_name = get(json_obj_response, ['result', 'metadata', 'intentName'])
     speech_response = get(json_obj_response, ['result', 'fulfillment', 'speech'])
+    logging.debug(speech_request)
 
-    if intent_name != 'link':
-        user_key = get(json_obj_request, ['user_key'])
+    if intent_name != 'link' and user_key != 'K9Um4_bGWB7v':
         Request.create(user_key, speech_request).save()
 
     result = {
@@ -106,5 +105,17 @@ def message(request):
                 result = search('%s 검색' % speech_request)
             else:
                 result['message']['text'] = unknown.speech_response
+    elif intent_name == 'help':
+        result['message']['text'] = '이런 식으로 사용하세요.\n\n' \
+                                    '<사용 예시>\n' \
+                                    '공지사항\n' \
+                                    '중요한 공지사항 보여줘\n' \
+                                    '최근 공지사항 5개\n' \
+                                    '장학 검색해줘\n' \
+                                    '공지사항 7일 전부터 알려줘\n' \
+                                    '오늘 공지사항\n\n' \
+                                    '<사용 예시 다시 보기>\n' \
+                                    '기능\n' \
+                                    'help'
 
     return JsonResponse(result)

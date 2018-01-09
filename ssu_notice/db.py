@@ -44,7 +44,7 @@ class DB:
             year = int(date_on.split('-')[0])
             month = int(date_on.split('-')[1])
             day = int(date_on.split('-')[2])
-            notices = Notice.objects.filter(date=datetime(year, month, day)).order_by('-id')
+            notices = Notice.objects.filter(date=datetime.date(year, month, day)).order_by('-id')
         elif intent_name == 'notice-07-hits':
             more_than = parameters['more_than']
             if more_than == '':

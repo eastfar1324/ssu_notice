@@ -3,7 +3,5 @@
   <component name="ProjectPlainTextFileTypeManager">
     <file url="file://$PROJECT_DIR$/client_ios/temp.json" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 2.7.12 (/Library/Frameworks/Python.framework/Versions/2.7/bin/python)" project-jdk-type="Python SDK">
-    <output url="file://$PROJECT_DIR$/out" />
-  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 2.7.12 (ssu_notice)" project-jdk-type="Python SDK" />
 </project>

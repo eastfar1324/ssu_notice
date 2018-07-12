@@ -7,6 +7,8 @@
         <option name="settingsModule" value="" />
         <option name="manageScript" value="" />
         <option name="environment" value="&lt;map/&gt;" />
+        <option name="doNotUseTestRunner" value="false" />
+        <option name="trackFilePattern" value="migrations" />
       </configuration>
     </facet>
     <facet type="google-appengine-python" name="Google App Engine (Python)">
@@ -20,10 +22,9 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
+  <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 2.7.12 (/Library/Frameworks/Python.framework/Versions/2.7/bin/python)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 2.7.12 (ssu_notice)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Google App Engine SDK" level="project" />
     <orderEntry type="module-library" exported="">
@@ -31,7 +32,6 @@
         <CLASSES>
           <root url="file://$MODULE_DIR$/lib" />
         </CLASSES>
-        <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>

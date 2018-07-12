@@ -1,4 +1,4 @@
-Django==1.11.5
+Django==1.11.10
 requests==2.18.4
 apiai==1.2.3
 beautifulsoup4==4.6.0

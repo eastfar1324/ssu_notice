@@ -13,7 +13,7 @@ sys.setdefaultencoding('utf-8')
 
 
 def index(request):
-    unknowns = Unknown.objects.filter(speech_response__isnull=True).order_by('-count')
+    unknowns = Unknown.objects.filter(speech_response__isnull=True).order_by('count', '-id')
     return render(request, 'learn.html', {'unknowns': unknowns})
 
 

@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from ssu_notice.common import Hangul
 
 
 class Notice(models.Model):
     id = models.AutoField(primary_key=True)
     categories = models.TextField()
     title = models.TextField()
+    initials = models.TextField()
     url = models.TextField()
     owner = models.TextField()
     date = models.DateField()
@@ -16,6 +18,7 @@ class Notice(models.Model):
     def create(cls, title, url, date, hits, categories, owner):
         return cls(
             title=unicode(title),
+            initials=Hangul().hangul2initials(unicode(title)),
             url=url,
             date=date,
             hits=hits,

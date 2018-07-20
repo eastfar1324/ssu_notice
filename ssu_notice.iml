@@ -24,7 +24,7 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 2.7.12 (ssu_notice)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 2.7.12 (ssu-notice)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Google App Engine SDK" level="project" />
     <orderEntry type="module-library" exported="">

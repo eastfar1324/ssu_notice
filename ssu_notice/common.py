@@ -37,7 +37,7 @@ def korea_datetime(datetime_utc):
 
 
 def timestamp(datetime):
-    return time.mktime(datetime.timetuple())*1000
+    return time.mktime(datetime.timetuple()) * 1000
 
 
 def korea_timestamp(datetime):
@@ -51,3 +51,36 @@ def get_parameter_int(request, name, default=0):
         return int(parameter)
     else:
         return default
+
+
+class Hangul:
+    def __init__(self):
+        self.__HANGUL_RANGE = (44032, 55203)
+        self.__INITIALS_START_LETTER = 4352
+        self.__INITIALS_CYCLE = 588
+        self.__INITIALS_TO_CONSONANTS = {}
+
+        initials = [u'가', u'까', u'나', u'다', u'따', u'라', u'마', u'바', u'빠', u'사', u'싸', u'아', u'자', u'짜', u'차', u'카', u'타', u'파', u'하']
+        consonants = [u'ㄱ', u'ㄲ', u'ㄴ', u'ㄷ', u'ㄸ', u'ㄹ', u'ㅁ', u'ㅂ', u'ㅃ', u'ㅅ', u'ㅆ', u'ㅇ', u'ㅈ', u'ㅉ', u'ㅊ', u'ㅋ', u'ㅌ', u'ㅍ', u'ㅎ']
+
+        for i in range(len(initials)):
+            self.__INITIALS_TO_CONSONANTS[self.__initial(initials[i])] = consonants[i]
+
+    def __is_hangul(self, char):
+        return self.__HANGUL_RANGE[0] <= ord(char) <= self.__HANGUL_RANGE[1]
+
+    def __initial(self, char):
+        return unichr((ord(char) - self.__HANGUL_RANGE[0]) / self.__INITIALS_CYCLE + self.__INITIALS_START_LETTER)
+
+    def is_initials(self, string):
+        return all(char in self.__INITIALS_TO_CONSONANTS.values() for char in string) if string else False
+
+    def hangul2initials(self, string):
+        chars = []
+        for char in string:
+            if self.__is_hangul(char):
+                chars.append(self.__INITIALS_TO_CONSONANTS[self.__initial(char)])
+            else:
+                chars.append(char)
+
+        return u''.join(chars)

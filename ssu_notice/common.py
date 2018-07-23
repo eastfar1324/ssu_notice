@@ -73,7 +73,10 @@ class Hangul:
         return unichr((ord(char) - self.__HANGUL_RANGE[0]) / self.__INITIALS_CYCLE + self.__INITIALS_START_LETTER)
 
     def is_initials(self, string):
-        return all(char in self.__INITIALS_TO_CONSONANTS.values() for char in string) if string else False
+        if string:
+            return all(all(char in self.__INITIALS_TO_CONSONANTS.values() for char in word) for word in string.split())
+        else:
+            return False
 
     def hangul2initials(self, string):
         chars = []

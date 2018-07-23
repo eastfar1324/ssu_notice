@@ -5,6 +5,7 @@ from datetime import datetime
 from webcrawling.models import Notice
 from common import *
 import datetime
+from ssu_notice.common import Hangul
 import operator
 import logging
 
@@ -27,14 +28,8 @@ class DB:
                 '-exponent')[:20]
             notices = sorted(notices, key=lambda notice: notice.id, reverse=True)
         elif intent_name == 'notice-04-search':
-            keywords = []
-            for sub_keyword in parameters['keyword'].split():
-                special_character_removed = ''.join(ch for ch in sub_keyword if ch.isalnum())
-                keywords.append(special_character_removed)
-
-            condition = reduce(operator.or_, [Q(title__icontains=keyword) for keyword in keywords])
-            condition |= reduce(operator.or_, [Q(categories__icontains=keyword) for keyword in keywords])
-
+            search_keyword = parameters['keyword']
+            condition = Q(initials__icontains=search_keyword) if Hangul().is_initials(search_keyword) else Q(title__icontains=search_keyword)
             notices = Notice.objects.filter(condition).order_by('-id')
         elif intent_name == 'notice-05-date-from':
             date_from = parameters['date']

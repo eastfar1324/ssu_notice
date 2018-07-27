@@ -32,22 +32,11 @@ class DB:
             condition = Q(initials__icontains=search_keyword) if Hangul().is_initials(search_keyword) else Q(title__icontains=search_keyword)
             notices = Notice.objects.filter(condition).order_by('-id')
         elif intent_name == 'notice-05-date-from':
-            date_from = parameters['date']
+            date_from = datetime.datetime.strptime(parameters['date'], '%Y-%m-%dT%H:%M:%S+00:00').date()
             notices = Notice.objects.filter(date__gte=date_from).order_by('-id')
         elif intent_name == 'notice-06-date-on':
-            date_on = parameters['date']
-            year = int(date_on.split('-')[0])
-            month = int(date_on.split('-')[1])
-            day = int(date_on.split('-')[2])
-            notices = Notice.objects.filter(date=datetime.date(year, month, day)).order_by('-id')
-        elif intent_name == 'notice-07-hits':
-            more_than = parameters['more_than']
-            if more_than == '':
-                more_than = 10000
-                notices = Notice.objects.filter(hits__gte=more_than).order_by('-id')
-            else:
-                more_than = int(more_than)
-                notices = Notice.objects.filter(hits__gte=more_than).order_by('-id')
+            date_on = datetime.datetime.strptime(parameters['date'], '%Y-%m-%dT%H:%M:%S+00:00').date()
+            notices = Notice.objects.filter(date=date_on).order_by('-id')
         else:
             pass
 

@@ -13,70 +13,7 @@ import json
 
 
 @csrf_exempt
-def friend(request):
-    if request.method == 'POST':
-        user_key = get(make_json_object(request), ['user_key'])
-        logging.info('The user(%s) now is my friend.' % user_key)
-    elif request.method == 'DELETE':
-        user_key = request.path.split('/')[-1]
-        logging.info('The user(%s) deleted me.' % user_key)
-
-    return HttpResponse('SUCCESS')
-
-
-def keyboard(request):
-    return JsonResponse({
-        'type': 'text'
-    })
-
-
-@csrf_exempt
 def message(request):
-    def unknown_result(_speech_request):
-        def search(_speech_request):
-            _json_obj_response = DialogFlow.response_json_obj(_speech_request)
-            _speech_response = get(_json_obj_response, ['result', 'fulfillment', 'speech'])
-            _notices = json.loads(get(_json_obj_response, ['result', 'contexts', 0, 'parameters', 'notices']))
-
-            if len(_notices) > 0:
-                response_keyboard = {
-                    "type": "buttons",
-                    "buttons": [_notice['fields']['title'] for _notice in _notices]
-                }
-            else:
-                response_keyboard = {
-                    "type": "text"
-                }
-
-            return {
-                'message': {
-                    'text': _speech_response
-                },
-                'keyboard': response_keyboard
-            }
-
-        unknown = Unknown.objects.filter(speech_request=_speech_request).first()
-
-        if unknown is None:
-            Unknown.create(_speech_request).save()
-            _result = search('%s 검색' % _speech_request)
-        else:
-            unknown.count += 1
-            unknown.save(update_fields=['count'])
-
-            if unknown.speech_response is None:
-                _result = search('%s 검색' % _speech_request)
-            else:
-                _result = {
-                    'message': {
-                        'text': unknown.speech_response
-                    },
-                    "keyboard": {
-                        "type": "text"
-                    }
-                }
-        return _result
-
     DialogFlow()
     json_obj_request = make_json_object(request)
     user_key = get(json_obj_request, ['user_key'])
@@ -107,8 +44,8 @@ def message(request):
             }
     elif intent_name == 'link':
         try:
-            url = get(json_obj_response, ['result', 'fulfillment', 'displayText'])
-        except KeyError:  # 유저 요청을 dialogflow 가 전체 block 지정된 link intent로 인지했을 떄
+            url = get(json_obj_response, ['result', 'contexts', 0, 'parameters', 'url'])
+        except (KeyError, IndexError):  # dialogflow가 검색 요청을 공지사항 link intent로 인지했을 떄
             result = unknown_result(speech_request)
         else:
             result['message']['message_button'] = {
@@ -144,6 +81,71 @@ def message(request):
                                     '기능 / 사용법 / 예시 / ㅇㅅ'
 
     return JsonResponse(result)
+
+
+def unknown_result(_speech_request):
+    unknown = Unknown.objects.filter(speech_request=_speech_request).first()
+
+    if unknown is None:
+        Unknown.create(_speech_request).save()
+        _result = search('%s 검색' % _speech_request)
+    else:
+        unknown.count += 1
+        unknown.save(update_fields=['count'])
+
+        if unknown.speech_response is None:
+            _result = search('%s 검색' % _speech_request)
+        else:
+            _result = {
+                'message': {
+                    'text': unknown.speech_response
+                },
+                "keyboard": {
+                    "type": "text"
+                }
+            }
+    return _result
+
+
+def search(_speech_request):
+    _json_obj_response = DialogFlow.response_json_obj(_speech_request)
+    _speech_response = get(_json_obj_response, ['result', 'fulfillment', 'speech'])
+    _notices = json.loads(get(_json_obj_response, ['result', 'contexts', 0, 'parameters', 'notices']))
+
+    if len(_notices) > 0:
+        response_keyboard = {
+            "type": "buttons",
+            "buttons": [_notice['fields']['title'] for _notice in _notices]
+        }
+    else:
+        response_keyboard = {
+            "type": "text"
+        }
+
+    return {
+        'message': {
+            'text': _speech_response
+        },
+        'keyboard': response_keyboard
+    }
+
+
+def keyboard(request):
+    return JsonResponse({
+        'type': 'text'
+    })
+
+
+@csrf_exempt
+def friend(request):
+    if request.method == 'POST':
+        user_key = get(make_json_object(request), ['user_key'])
+        logging.info('The user(%s) now is my friend.' % user_key)
+    elif request.method == 'DELETE':
+        user_key = request.path.split('/')[-1]
+        logging.info('The user(%s) deleted me.' % user_key)
+
+    return HttpResponse('SUCCESS')
 
 
 @csrf_exempt

@@ -36,7 +36,7 @@ def message(request):
     }
 
     if 'notice' in intent_name:
-        notices = json.loads(get(json_obj_response, ['result', 'contexts', 0, 'parameters', 'notices']))
+        notices = json.loads(get(json_obj_response, ['result', 'fulfillment', 'data', 'notices']))
         if len(notices) > 0:
             result['keyboard'] = {
                 "type": "buttons",
@@ -44,7 +44,7 @@ def message(request):
             }
     elif intent_name == 'link':
         try:
-            url = get(json_obj_response, ['result', 'contexts', 0, 'parameters', 'url'])
+            url = get(json_obj_response, ['result', 'fulfillment', 'data', 'url'])
         except (KeyError, IndexError):  # dialogflow가 검색 요청을 공지사항 link intent로 인지했을 떄
             result = unknown_result(speech_request)
         else:
@@ -110,7 +110,7 @@ def unknown_result(_speech_request):
 def search(_speech_request):
     _json_obj_response = DialogFlow.response_json_obj(_speech_request)
     _speech_response = get(_json_obj_response, ['result', 'fulfillment', 'speech'])
-    _notices = json.loads(get(_json_obj_response, ['result', 'contexts', 0, 'parameters', 'notices']))
+    _notices = json.loads(get(_json_obj_response, ['result', 'fulfillment', 'data', 'notices']))
 
     if len(_notices) > 0:
         response_keyboard = {

@@ -6,7 +6,6 @@ from webcrawling.models import Notice
 from common import *
 import datetime
 from ssu_notice.common import Hangul
-import operator
 import logging
 
 
@@ -24,8 +23,7 @@ class DB:
             how_many = int(parameters['how_many'])
             notices = Notice.objects.all().order_by('-id')[:how_many]
         elif intent_name == 'notice-03-important':
-            notices = Notice.objects.filter(date__gt=datetime.datetime.today() - datetime.timedelta(days=90)).order_by(
-                '-exponent')[:20]
+            notices = Notice.objects.filter(date__gt=datetime.datetime.today() - datetime.timedelta(days=90)).order_by('-exponent')[:20]
             notices = sorted(notices, key=lambda notice: notice.id, reverse=True)
         elif intent_name == 'notice-04-search':
             search_keyword = parameters['keyword']
@@ -41,6 +39,10 @@ class DB:
             pass
 
         return notices
+
+    @staticmethod
+    def get_notice(title):
+        return Notice.objects.filter(title=title).first()
 
     @staticmethod
     def get_hits_increase(notice_id, time_relative=False):

@@ -19,7 +19,9 @@ def message(request):
     user_key = get(json_obj_request, ['user_key'])
     speech_request = get(json_obj_request, ['content'])
     json_obj_response = DialogFlow.response_json_obj(speech_request)
+    logging.debug(json_obj_response)
     intent_name = get(json_obj_response, ['result', 'metadata', 'intentName'])
+    confidence = get(json_obj_response, ['result', 'score'])
     speech_response = get(json_obj_response, ['result', 'fulfillment', 'speech'])
     logging.debug(speech_request)
 
@@ -35,24 +37,26 @@ def message(request):
         }
     }
 
-    if 'notice' in intent_name:
+    if confidence < 0.5:  # ambiguous request
+        result = unknown_result(user_key, speech_request)
+    elif 'notice' in intent_name:  # notice request
         notices = json.loads(get(json_obj_response, ['result', 'fulfillment', 'data', 'notices']))
         if len(notices) > 0:
             result['keyboard'] = {
                 "type": "buttons",
                 "buttons": [notice['fields']['title'] for notice in notices]
             }
-    elif intent_name == 'link':
+    elif intent_name == 'link':  # link request
         try:
             url = get(json_obj_response, ['result', 'fulfillment', 'data', 'url'])
         except (KeyError, IndexError):  # dialogflow가 검색 요청을 공지사항 link intent로 인지했을 떄
-            result = unknown_result(speech_request)
+            result = unknown_result(user_key, speech_request)
         else:
             result['message']['message_button'] = {
                 "label": '보러가기',
                 "url": url
             }
-    elif intent_name == 'Default Fallback Intent':
+    elif intent_name == 'Default Fallback Intent':  # search request
         if speech_request[-3:] == '...':
             notice = Notice.objects.filter(title__icontains=speech_request[0:-3]).first()
         else:
@@ -67,8 +71,8 @@ def message(request):
                 }
             }
         else:
-            result = unknown_result(speech_request)
-    elif intent_name == 'help':
+            result = unknown_result(user_key, speech_request)
+    elif intent_name == 'help':  # guide request
         result['message']['text'] = '이런 식으로 사용하세요.\n\n' \
                                     '<사용 예시>\n' \
                                     '공지사항 / 공지 / ㄱㅈ\n' \
@@ -84,20 +88,22 @@ def message(request):
     return JsonResponse(result)
 
 
-def unknown_result(_speech_request):
-    unknown = Unknown.objects.filter(speech_request=_speech_request).first()
+def unknown_result(user_key, speech_request):
+    unknown = Unknown.objects.filter(speech_request=speech_request).first()
 
     if unknown is None:
-        Unknown.create(_speech_request).save()
-        _result = search('%s 검색' % _speech_request)
+        if user_key != 'K9Um4_bGWB7v':
+            Unknown.create(speech_request).save()
+        result = search('%s 검색' % speech_request)
     else:
-        unknown.count += 1
-        unknown.save(update_fields=['count'])
+        if user_key != 'K9Um4_bGWB7v':
+            unknown.count += 1
+            unknown.save(update_fields=['count'])
 
         if unknown.speech_response is None:
-            _result = search('%s 검색' % _speech_request)
+            result = search('%s 검색' % speech_request)
         else:
-            _result = {
+            result = {
                 'message': {
                     'text': unknown.speech_response
                 },
@@ -105,18 +111,18 @@ def unknown_result(_speech_request):
                     "type": "text"
                 }
             }
-    return _result
+    return result
 
 
 def search(_speech_request):
-    _json_obj_response = DialogFlow.response_json_obj(_speech_request)
-    _speech_response = get(_json_obj_response, ['result', 'fulfillment', 'speech'])
-    _notices = json.loads(get(_json_obj_response, ['result', 'fulfillment', 'data', 'notices']))
+    json_obj_response = DialogFlow.response_json_obj(_speech_request)
+    speech_response = get(json_obj_response, ['result', 'fulfillment', 'speech'])
+    notices = json.loads(get(json_obj_response, ['result', 'fulfillment', 'data', 'notices']))
 
-    if len(_notices) > 0:
+    if len(notices) > 0:
         response_keyboard = {
             "type": "buttons",
-            "buttons": [_notice['fields']['title'] for _notice in _notices]
+            "buttons": [_notice['fields']['title'] for _notice in notices]
         }
     else:
         response_keyboard = {
@@ -125,7 +131,7 @@ def search(_speech_request):
 
     return {
         'message': {
-            'text': _speech_response
+            'text': speech_response
         },
         'keyboard': response_keyboard
     }

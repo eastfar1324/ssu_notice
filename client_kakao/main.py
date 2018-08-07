@@ -19,7 +19,6 @@ def message(request):
     user_key = get(json_obj_request, ['user_key'])
     speech_request = get(json_obj_request, ['content'])
     json_obj_response = DialogFlow.response_json_obj(speech_request)
-    logging.debug(json_obj_response)
     intent_name = get(json_obj_response, ['result', 'metadata', 'intentName'])
     confidence = get(json_obj_response, ['result', 'score'])
     speech_response = get(json_obj_response, ['result', 'fulfillment', 'speech'])

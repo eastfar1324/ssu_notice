@@ -52,7 +52,9 @@ class DialogFlow:
             requested_notice = DB.get_notice(requested_title)
 
             fulfillment_text = requested_title
-            payload['url'] = requested_notice.url
+            if requested_notice:
+                payload['url'] = requested_notice.url
+
         return HttpResponse(
             JsonResponse({
                 'fulfillmentText': fulfillment_text,

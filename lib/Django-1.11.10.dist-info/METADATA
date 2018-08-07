@@ -1,11 +1,12 @@
 Metadata-Version: 2.0
 Name: Django
-Version: 1.11.5
+Version: 1.11.10
 Summary: A high-level Python Web framework that encourages rapid development and clean, pragmatic design.
 Home-page: https://www.djangoproject.com/
 Author: Django Software Foundation
 Author-email: foundation@djangoproject.com
 License: BSD
+Description-Content-Type: UNKNOWN
 Platform: UNKNOWN
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Environment :: Web Environment

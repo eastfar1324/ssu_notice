@@ -230,9 +230,24 @@ class GenericForeignKey(object):
         except AttributeError:
             rel_obj = None
         else:
-            if rel_obj and (ct_id != self.get_content_type(obj=rel_obj, using=instance._state.db).id or
-                            rel_obj._meta.pk.to_python(pk_val) != rel_obj._get_pk_val()):
-                rel_obj = None
+            if rel_obj:
+                if ct_id != self.get_content_type(obj=rel_obj, using=instance._state.db).id:
+                    rel_obj = None
+                else:
+                    pk = rel_obj._meta.pk
+                    # If the primary key is a remote field, use the referenced
+                    # field's to_python().
+                    to_python_field = pk
+                    # Out of an abundance of caution, avoid infinite loops.
+                    seen = {to_python_field}
+                    while to_python_field.remote_field:
+                        to_python_field = to_python_field.target_field
+                        if to_python_field in seen:
+                            break
+                        seen.add(to_python_field)
+                    pk_to_python = to_python_field.to_python
+                    if pk_to_python(pk_val) != rel_obj._get_pk_val():
+                        rel_obj = None
 
         if rel_obj is not None:
             return rel_obj

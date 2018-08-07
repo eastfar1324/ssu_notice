@@ -390,6 +390,11 @@ class SQLCompiler(object):
         parts = ()
         for compiler in compilers:
             try:
+                # If the columns list is limited, then all combined queries
+                # must have the same columns list. Set the selects defined on
+                # the query on all combined queries, if not already set.
+                if not compiler.query.values_select and self.query.values_select:
+                    compiler.query.set_values(self.query.values_select)
                 parts += (compiler.as_sql(),)
             except EmptyResultSet:
                 # Omit the empty queryset with UNION and with DIFFERENCE if the
@@ -828,12 +833,12 @@ class SQLCompiler(object):
             row[pos] = value
         return tuple(row)
 
-    def results_iter(self, results=None):
+    def results_iter(self, results=None, chunked_fetch=False):
         """
         Returns an iterator over the results from executing this query.
         """
         if results is None:
-            results = self.execute_sql(MULTI)
+            results = self.execute_sql(MULTI, chunked_fetch=chunked_fetch)
         fields = [s[0] for s in self.select[0:self.col_count]]
         converters = self.get_converters(fields)
         for rows in results:

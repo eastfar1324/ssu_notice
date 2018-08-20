@@ -18,7 +18,9 @@ def message(request):
     json_obj_request = make_json_object(request)
     user_key = get(json_obj_request, ['user_key'])
     speech_request = get(json_obj_request, ['content'])
+
     json_obj_response = DialogFlow.response_json_obj(speech_request)
+    logging.debug(json_obj_response)
     intent_name = get(json_obj_response, ['result', 'metadata', 'intentName'])
     confidence = get(json_obj_response, ['result', 'score'])
     speech_response = get(json_obj_response, ['result', 'fulfillment', 'speech'])
@@ -72,8 +74,8 @@ def message(request):
         else:
             result = unknown_result(user_key, speech_request)
     elif intent_name == 'help':  # guide request
-        result['message']['text'] = '이런 식으로 사용하세요.\n\n' \
-                                    '<사용 예시>\n' \
+        result['message']['text'] = '아래와 같이 물어보세요.\n\n' \
+                                    '<사용예시>\n' \
                                     '공지사항 / 공지 / ㄱㅈ\n' \
                                     '중요한 공지사항 / 중요 / ㅈㅇ\n' \
                                     '장학 검색해줘 / 장학\n' \
@@ -81,8 +83,9 @@ def message(request):
                                     '오늘 공지\n' \
                                     '공지사항 5개 / 공지 5개 / ㄱㅈ 5\n' \
                                     '공지사항 3일전부터 알려줘\n\n' \
-                                    '<사용 예시 다시 보기>\n' \
-                                    '기능 / 안내 / 예시 / help'
+                                    '<사용예시 다시보기>\n' \
+                                    '기능 / 안내 / 예시 / help\n\n' \
+                                    '초성  검색도 가능해요.'
 
     return JsonResponse(result)
 

@@ -23,7 +23,8 @@ class DB:
             how_many = int(parameters['how_many'])
             notices = Notice.objects.all().order_by('-id')[:how_many]
         elif intent_name == 'notice-03-important':
-            notices = Notice.objects.filter(date__gt=datetime.datetime.today() - datetime.timedelta(days=90)).order_by('-exponent')[:20]
+            condition = Q(hits__gt=1000) & Q(date__gt=datetime.datetime.today() - datetime.timedelta(days=30))
+            notices = Notice.objects.filter(condition).order_by('-exponent')[:10]
             notices = sorted(notices, key=lambda notice: notice.id, reverse=True)
         elif intent_name == 'notice-04-search':
             search_keyword = parameters['keyword']

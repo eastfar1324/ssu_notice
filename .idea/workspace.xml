@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bcef5a4-5e14-4d85-bc47-53d23a3784f5" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/eastfar/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ssu_notice/templates/requests.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssu_notice/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/ssu_notice/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_kakao/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/client_kakao/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssu_notice/templates/visualize.html" beforeDir="false" afterPath="$PROJECT_DIR$/ssu_notice/templates/visualize.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssu_notice/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ssu_notice/urls.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,7 +21,7 @@
     <SUITE FILE_PATH="coverage/ssu_notice$views.coverage" NAME="views Coverage Results" MODIFIED="1532899576986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/client_learn" />
     <SUITE FILE_PATH="coverage/ssu_notice$test.coverage" NAME="test Coverage Results" MODIFIED="1508610454796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webcrawling" />
     <SUITE FILE_PATH="coverage/ssu_notice$models.coverage" NAME="models Coverage Results" MODIFIED="1508624211519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webcrawling" />
-    <SUITE FILE_PATH="coverage/ssu_notice$ssu_notice.coverage" NAME="ssu_notice Coverage Results" MODIFIED="1532902733920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/ssu_notice$ssu_notice.coverage" NAME="ssu_notice Coverage Results" MODIFIED="1535199212051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/ssu_notice$admin.coverage" NAME="admin Coverage Results" MODIFIED="1514814879185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/client_kakao" />
     <SUITE FILE_PATH="coverage/ssu_notice$temp_python.coverage" NAME="temp.python Coverage Results" MODIFIED="1532721451544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/client_kakao" />
   </component>
@@ -38,40 +43,44 @@
     <session id="531666979">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.6" value="4" />
+          <entry key="project.open.time.7" value="4" />
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="html" value="7" />
           <entry key="json" value="3" />
-          <entry key="py" value="18" />
-          <entry key="txt" value="2" />
+          <entry key="py" value="33" />
+          <entry key="txt" value="3" />
           <entry key="yaml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="HTML" value="7" />
           <entry key="JSON" value="3" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="18" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="Python" value="33" />
           <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1120" />
-          <entry key="txt" value="18" />
+          <entry key="html" value="263" />
+          <entry key="py" value="1864" />
+          <entry key="txt" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="18" />
-          <entry key="Python" value="1120" />
+          <entry key="HTML" value="263" />
+          <entry key="PLAIN_TEXT" value="19" />
+          <entry key="Python" value="1864" />
         </counts>
       </usages-collector>
     </session>
@@ -80,17 +89,7 @@
     <favorites_list name="ssu_notice" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ssu_notice/db.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -101,16 +100,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>response_web</find>
-      <find>webhook</find>
-      <find>&quot;</find>
-      <find>output_context</find>
-      <find>Notice</find>
-      <find>payload</find>
-      <find>contexts</find>
-      <find>context</find>
-      <find>.filter</find>
-      <find>'</find>
       <find>\</find>
       <find>a</find>
       <find>unknown_result</find>
@@ -131,6 +120,16 @@
       <find>conditin</find>
       <find>&amp;</find>
       <find>Q(</find>
+      <find>raise HTTPException(str(e))</find>
+      <find>json_obj_response</find>
+      <find>DialogFlow.response_json_obj</find>
+      <find>popper</find>
+      <find>#</find>
+      <find>#item</find>
+      <find>accordion</find>
+      <find>container_list</find>
+      <find>speech_request</find>
+      <find>bootstrap</find>
     </findStrings>
     <replaceStrings>
       <replace>json_request</replace>
@@ -163,9 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/kakao/main.py" />
-        <option value="$PROJECT_DIR$/webhook/main.py" />
-        <option value="$PROJECT_DIR$/webhook/dialogflow.py" />
         <option value="$PROJECT_DIR$/ios/urls.py" />
         <option value="$PROJECT_DIR$/kakao/apps.py" />
         <option value="$PROJECT_DIR$/client_ios/apps.py" />
@@ -182,12 +178,10 @@
         <option value="$PROJECT_DIR$/client_visualize/urls.py" />
         <option value="$PROJECT_DIR$/client_learn/urls.py" />
         <option value="$PROJECT_DIR$/client_kakao/urls.py" />
-        <option value="$PROJECT_DIR$/ssu_notice/templates/visualize.html" />
         <option value="$PROJECT_DIR$/ssu_notice/templates/learn.html" />
         <option value="$PROJECT_DIR$/webcrawling/admin.py" />
         <option value="$PROJECT_DIR$/client_test/urls.py" />
         <option value="$PROJECT_DIR$/app.yaml" />
-        <option value="$PROJECT_DIR$/client_kakao/models.py" />
         <option value="$PROJECT_DIR$/client_kakao/admin.py" />
         <option value="$PROJECT_DIR$/client_test/views.py" />
         <option value="$PROJECT_DIR$/webcrawling/models.py" />
@@ -202,7 +196,6 @@
         <option value="$PROJECT_DIR$/client_kakao/temp_webhook.json" />
         <option value="$PROJECT_DIR$/client_kakao/temp.python.py" />
         <option value="$PROJECT_DIR$/ssu_notice/webhook.py" />
-        <option value="$PROJECT_DIR$/ssu_notice/urls.py" />
         <option value="$PROJECT_DIR$/client_webhook/main.py" />
         <option value="$PROJECT_DIR$/client_kakao/webhook.json" />
         <option value="$PROJECT_DIR$/client_kakao/kakao.json" />
@@ -210,10 +203,16 @@
         <option value="$PROJECT_DIR$/client_kakao/temp.json" />
         <option value="$PROJECT_DIR$/client_learn/views.py" />
         <option value="$PROJECT_DIR$/client_learn/views.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/ssu_notice/dialogflow.py" />
-        <option value="$PROJECT_DIR$/client_kakao/main.py" />
         <option value="$PROJECT_DIR$/ssu_notice/db.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/client_kakao/main.py" />
+        <option value="$PROJECT_DIR$/ssu_notice/templates/visualize.html" />
+        <option value="$PROJECT_DIR$/ssu_notice/urls.py" />
+        <option value="$PROJECT_DIR$/eastfar/urls.py" />
+        <option value="$PROJECT_DIR$/client_kakao/models.py" />
+        <option value="$PROJECT_DIR$/eastfar/views.py" />
+        <option value="$PROJECT_DIR$/ssu_notice/templates/requests.html" />
       </list>
     </option>
   </component>
@@ -305,11 +304,6 @@
               <item name="ssu_notice" type="b2602c69:ProjectViewProjectNode" />
               <item name="ssu_notice" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ssu_notice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ssu_notice" type="462c0819:PsiDirectoryNode" />
-              <item name="client_kakao" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -330,19 +324,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/client_kakao" />
-      <recent name="$PROJECT_DIR$/ssu_notice/templates" />
-      <recent name="$PROJECT_DIR$/client_learn" />
-      <recent name="$PROJECT_DIR$/client_ios" />
-      <recent name="$PROJECT_DIR$/webhook" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/ssu_notice/static" />
       <recent name="$PROJECT_DIR$/ssu_notice" />
       <recent name="$PROJECT_DIR$/ssu_notice/templates" />
       <recent name="$PROJECT_DIR$/visualize/templates" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ssu_notice/templates" />
+      <recent name="$PROJECT_DIR$/client_kakao" />
+      <recent name="$PROJECT_DIR$/client_learn" />
+      <recent name="$PROJECT_DIR$/client_ios" />
+      <recent name="$PROJECT_DIR$/webhook" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -570,9 +564,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49914822" visible="true" weight="0.16523606" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49914822" visible="true" weight="0.17381974" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -590,7 +583,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5083333" side_tool="true" weight="0.2889151" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49749464" weight="0.32848486" />
+      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" sideWeight="0.49749464" weight="0.32771084" />
       <window_info anchor="bottom" id="Python Console" order="12" show_stripe_button="false" weight="0.32969698" />
       <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.49176806" weight="0.31084338" />
       <window_info active="true" anchor="bottom" id="App Config Tool" order="14" sideWeight="0.49166667" visible="true" weight="0.28674698" />
@@ -620,33 +613,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webcrawling/migrations/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/migrations/0002_auto_20171021_1411.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/migrations/0003_auto_20171021_1648.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/migrations/0004_auto_20171021_1718.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/migrations/0005_auto_20171021_1859.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/migrations/0006_auto_20171021_2216.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/migrations/0007_hits.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/migrations/0008_auto_20171109_1213.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/migrations/0009_auto_20171109_2242.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/webcrawling/migrations/0010_auto_20171116_1318.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -704,32 +670,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client_webhook/main.py" />
     <entry file="file://$PROJECT_DIR$/client_webhook/urls.py" />
-    <entry file="file://$PROJECT_DIR$/ssu_notice/templates/learn.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1234" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ssu_notice/webhook.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ssu_notice/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webcrawling/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-          <folding>
-            <element signature="e#24#52#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -752,13 +696,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Library/Python/2.7/lib/python/site-packages/dialogflow_v2/types.py" />
-    <entry file="file://$PROJECT_DIR$/client_kakao/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client_kakao/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -773,27 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client_learn/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client_kakao/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="85" column="26" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ssu_notice/dialogflow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
@@ -801,12 +717,132 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/sdks/google-cloud-sdk/platform/google_appengine/google/appengine/dist27/gae_override/httplib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="531" column="6" selection-start-line="531" selection-start-column="6" selection-end-line="531" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eastfar/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eastfar/models.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client_kakao/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          <folding>
+            <element signature="e#24#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ssu_notice/db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="341">
           <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client_learn/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client_learn/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eastfar/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssu_notice/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webcrawling/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+          <folding>
+            <element signature="e#24#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssu_notice/templates/visualize.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client_kakao/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssu_notice/templates/learn.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="41" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eastfar/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+          <folding>
+            <element signature="e#24#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssu_notice/templates/requests.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eastfar/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">

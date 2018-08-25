@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
-from django.http import HttpResponse
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from ssu_notice.common import get
-from ssu_notice.common import make_json_object
+from ssu_notice.common import get, make_json_object
 from ssu_notice.dialogflow import DialogFlow
-from models import Request
-from models import Unknown
 from webcrawling.models import Notice
+from models import Request, Unknown
 import logging
 import json
 

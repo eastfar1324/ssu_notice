@@ -5,17 +5,45 @@ from ssu_notice.common import get, make_json_object
 from ssu_notice.dialogflow import DialogFlow
 from webcrawling.models import Notice
 from models import Request, Unknown
+import random
 import logging
 import json
 
 
 @csrf_exempt
 def message(request):
-    DialogFlow()
     json_obj_request = make_json_object(request)
     user_key = get(json_obj_request, ['user_key'])
     speech_request = get(json_obj_request, ['content'])
 
+    if speech_request == '다시 물어볼래요':
+        return JsonResponse({
+            'message': {
+                'text': random.choice([
+                    '얼마든지요.',
+                    '얼마든지 물어보세요.',
+                    '공지사항이라면 무엇이든 물어보세요.',
+                    '네.',
+                    '네. 좋아요.',
+                    '언제나 환영이에요.',
+                    '기다리고 있을게요.',
+                    '좋아요.',
+                    '좋아요. 기다리고 있을게요.',
+                    '환영합니다.',
+                    "'ㅈㅇ' 라고 입력하시면 중요한 공지사항만 알려드려요.",
+                    "사용법이 궁금하시다면, '기능' 이라고 입력해보세요.",
+                    'PC 카톡에서도 되는데, 알고 계신가요?',
+                    '공지사항을 초성으로도 검색할 수 있어요.',
+                    '왠지 당신은 좋은 사람 같아요.',
+                    '오늘 하루도 힘내세요.'
+                ])
+            },
+            "keyboard": {
+                "type": "text"
+            }
+        })
+
+    DialogFlow()
     json_obj_response = DialogFlow.response_json_obj(speech_request)
     logging.debug(json_obj_response)
     intent_name = get(json_obj_response, ['result', 'metadata', 'intentName'])
@@ -42,7 +70,7 @@ def message(request):
         if len(notices) > 0:
             result['keyboard'] = {
                 "type": "buttons",
-                "buttons": [notice['fields']['title'] for notice in notices]
+                "buttons": ['다시 물어볼래요'] + [notice['fields']['title'] for notice in notices]
             }
     elif intent_name == 'link':  # link request
         try:
@@ -82,7 +110,7 @@ def message(request):
                                     '공지사항 3일전부터 알려줘\n\n' \
                                     '<사용예시 다시보기>\n' \
                                     '기능 / 안내 / 예시 / help\n\n' \
-                                    '초성  검색도 가능해요.'
+                                    '초성 검색도 가능해요.'
 
     return JsonResponse(result)
 
@@ -121,7 +149,7 @@ def search(_speech_request):
     if len(notices) > 0:
         response_keyboard = {
             "type": "buttons",
-            "buttons": [_notice['fields']['title'] for _notice in notices]
+            "buttons": ['다시 물어볼래요'] + [_notice['fields']['title'] for _notice in notices]
         }
     else:
         response_keyboard = {

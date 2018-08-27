@@ -7,6 +7,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
-def index(request):
+def index(http_request):
     requests = Request.objects.all().order_by('-id')[:50]
-    return render(request, 'requests.html', {'requests': requests})
+
+    return render(http_request, 'requests.html', {'requests': requests})

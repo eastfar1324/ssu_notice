@@ -32,13 +32,17 @@
     <table class="table table-bordered">
         <tbody>
         {% if requests %}
-            {% for request in requests %}
-                <tr>
-                    <td style="width: 10%" class="align-middle">{{ request.time|date:'m.d H:i' }}</td>
-                    <td style="width: 75%" class="align-middle">{{ request.speech }}</td>
-                    <td style="width: 15%" class="align-middle">{{ request.user_key }}</td>
-                </tr>
-            {% endfor %}
+            {% load tz %}
+            {% timezone "Asia/Seoul" %}
+                {% for request in requests %}
+                    <tr>
+                        <td style="width: 5%" class="align-middle">{{ request.id }}</td>
+                        <td style="width: 10%" class="align-middle">{{ request.time|date:'m.d H:i' }}</td>
+                        <td style="width: 70%" class="align-middle">{{ request.speech }}</td>
+                        <td style="width: 15%" class="align-middle">{{ request.user_key }}</td>
+                    </tr>
+                {% endfor %}
+            {% endtimezone %}
         {% else %}
             There are no records.
         {% endif %}

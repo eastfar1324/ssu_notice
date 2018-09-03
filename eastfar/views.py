@@ -8,6 +8,6 @@ sys.setdefaultencoding('utf-8')
 
 
 def index(http_request):
-    requests = Request.objects.all().order_by('-id')[:50]
+    requests = Request.objects.all().order_by('-id')[:100]
 
     return render(http_request, 'requests.html', {'requests': requests})
